@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Website.RealWorldApps.Models.Player>
+
+@{
+    ViewBag.Title = "Players";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    @ViewBag.Title
+</div>
+
+<div class="panel-body">
+    <table class="table table-striped">
+        <tr class="success">
+            <th>Name</th>
+            <th>Jersey Number</th>
+            <th>Position</th>
+        </tr>
+        @foreach (var player in Model)
+        {
+            <tr>
+                <td>@player.Name</td>
+                <td>@player.JerseyNumber</td>
+                <td>@player.Position</td>
+            </tr>
+        }
+    </table>
+
+    @foreach (var player in Model)
+    {
+        <div class="page-header text-center">
+            <div class="text-center">
+                <img src="~/Content/Images/@player.ImgName" alt="@player.Name" class="img-circle" />
+            </div>
+            <div class="text-center">
+                @player.Name
+            </div>
+            <div class="text-center">
+                @player.JerseyNumber
+            </div>
+            <div class="text-center">
+                @player.Position
+            </div>
+        </div>
+    }
+
+</div>

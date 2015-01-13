@@ -7,10 +7,56 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    @RenderBody()
+<body ng-app>
+    <div class="container">
+        <div class="panel-heading">
+            <div class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Real World Apps</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <div class="btn-group">
+                                    <a href="~/" class="btn btn-default">Home</a>
+                                    <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="~/Home/About">About Us</a></li>
+                                        <li><a href="~/Home/Contact">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Team&nbsp;<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="~/Team/Players">View Players</a></li>
+                                        <li><a href="~/Team/Coaches">View Coaches</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            @RenderBody()
+        </div>
+        <div class="navbar-fixed-bottom panel-footer">
+            <div class="container">
+                <p class="small">&copy; @DateTime.Today.Year - Real World Apps</p>
+            </div>
+        </div>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/toastr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angular-route")
+    @Scripts.Render("~/bundles/angular-resource")
     @RenderSection("scripts", required: false)
 </body>
 </html>

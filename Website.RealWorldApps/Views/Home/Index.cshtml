@@ -1,0 +1,18 @@
+﻿@model List<Website.RealWorldApps.Models.News>
+
+@{
+    ViewBag.Title = "News Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-body">
+    @foreach (var story in Model)
+    {
+        <div class="page-header text-uppercase" style="margin-bottom:0; padding-bottom:0;">
+            @story.Headline
+        </div>
+        <div class="panel-body">
+            @story.Body
+        </div>
+    }
+</div>

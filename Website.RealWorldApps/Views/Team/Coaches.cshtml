@@ -1,0 +1,27 @@
+﻿@model List<Website.RealWorldApps.Models.Coach>
+
+@{
+    ViewBag.Title = "Coaches";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    @ViewBag.Title
+</div>
+
+<div class="panel-body">
+    @foreach (var coach in Model)
+    {
+        <div class="page-header text-center">
+            <div class="text-center">
+                <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" />
+            </div>
+            <div class="text-center">
+                @coach.Name
+            </div>
+            <div class="text-center">
+                @coach.Position
+            </div>
+        </div>
+    }
+</div>
