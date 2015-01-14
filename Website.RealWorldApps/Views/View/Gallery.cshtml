@@ -1,0 +1,21 @@
+﻿@model List<Website.RealWorldApps.Models.Image>
+
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<div class="panel-body">
+    <ul class="list-inline">
+        @foreach (var image in Model)
+        {
+            <li>
+                <a href="~/Content/Images/Gallery/@image.ImgName" data-lightbox="gallery"><img src="~/Content/Images/Gallery/@image.ImgName" alt="@image.ImgName" style="height: 200px; width: 200px;" /></a>
+            </li>
+        }
+    </ul>
+</div>

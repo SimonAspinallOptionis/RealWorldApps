@@ -10,11 +10,11 @@
         {
             get
             {
-                if(string.IsNullOrEmpty(_imgName))
+                if (string.IsNullOrEmpty(_imgName))
                 {
-                    _imgName = "CheshireWire.jpg";
+                    return "England_Basketball.jpg";
                 }
-                return _imgName;
+                return "/Coaches/" + _imgName;
             }
             set
             {

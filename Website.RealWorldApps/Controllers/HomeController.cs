@@ -6,13 +6,21 @@ namespace Website.RealWorldApps.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Home()
         {
-            var news = new List<News>();
-            news.Add(new News { Headline = "Welcome", Body = "Welcome to Real World Apps" });
-            news.Add(new News { Headline = "Ahh", Body = "Something crazy just happened" });
-            return View(news);
+            var data = new Data();
+            data.AddNews();
+            return View(data.News);
         }
 
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
     }
 }

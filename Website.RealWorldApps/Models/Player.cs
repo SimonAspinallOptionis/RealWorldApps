@@ -13,9 +13,9 @@
             {
                 if(string.IsNullOrEmpty(_imgName))
                 {
-                    _imgName = "CheshireWire.jpg";
+                    return "England_Basketball.jpg";
                 }
-                return _imgName;
+                return "Players/" + _imgName;
             }
             set
             {

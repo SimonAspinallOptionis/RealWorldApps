@@ -13,17 +13,17 @@
             <div class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Real World Apps</a>
+                        <a class="navbar-brand" href="/">Real World Apps</a>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li>
                                 <div class="btn-group">
-                                    <a href="~/" class="btn btn-success">Home</a>
-                                    <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
+                                    <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Home&nbsp;<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="~/Home/About">About Us</a></li>
-                                        <li><a href="~/Home/Contact">Contact Us</a></li>
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="~/Home/AboutUs">About Us</a></li>
+                                        <li><a href="~/Home/ContactUs">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -45,6 +45,15 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li>
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-success dropdown-toggle", data-toggle="dropdown" aria-expanded="false">View&nbsp;<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="~/View/Gallery">View Gallery</a></li>
+                                        <li><a href="~/View/Video">View Videos</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -63,6 +72,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/toastr")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/lightbox")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/angular-route")
     @Scripts.Render("~/bundles/angular-resource")

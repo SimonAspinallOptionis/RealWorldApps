@@ -10,10 +10,10 @@ namespace Website.RealWorldApps.Controllers
         private List<Player> DataPlayers { get; set;}
         private List<Coach> DataCoaches { get; set; }
 
-        Data data = new Data();
-
         public ActionResult Players()
         {
+            var data = new Data();
+            data.AddPlayers();
             DataPlayers = data.Players;
             DataPlayers = DataPlayers.OrderBy(p => p.JerseyNumber).ToList();
             return View(DataPlayers);
@@ -21,6 +21,8 @@ namespace Website.RealWorldApps.Controllers
 
         public ActionResult Coaches()
         {
+            var data = new Data();
+            data.AddCoaches();
             DataCoaches = data.Coaches;
             return View(DataCoaches);
         }

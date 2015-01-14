@@ -7,6 +7,7 @@ namespace Website.RealWorldApps.Models
         private string _shotChartUrl;
 
         public string OpponentName { get; set; }
+        public string Organisation { get; set; }
         public DateTime TipOff { get; set; }
         public string Location { get; set; }
         public int CheshireScore { get; set; }
@@ -35,9 +36,9 @@ namespace Website.RealWorldApps.Models
             {
                 if (string.IsNullOrEmpty(_imgName))
                 {
-                    _imgName = "CheshireWire.jpg";
+                    return "TeamLogos/" + Organisation + "_Basketball.jpg";
                 }
-                return _imgName;
+                return "TeamLogos/" + _imgName;
             }
             set
             {

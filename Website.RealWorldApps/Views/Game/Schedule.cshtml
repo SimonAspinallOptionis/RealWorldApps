@@ -1,0 +1,35 @@
+﻿@model List<Website.RealWorldApps.Models.Fixture>
+
+@{
+    ViewBag.Title = "Upcoming Fixtures";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+<ul class="list-unstyled">
+    @foreach (var fixture in Model)
+    {
+        <li>
+            <div class="page-header text-center">
+                <div class="panel">
+                    <div class="panel-body text-center">
+                        <div class="row">
+                            <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.OpponentName" class="img-rounded" style="height:200px; width:200px;" />
+                        </div>
+                        <div class="row">
+                            @fixture.OpponentName
+                        </div>
+                        <div class="row">
+                            @fixture.Location
+                        </div>
+                        <div class="row">
+                            @fixture.TipOff
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    }
+</ul>

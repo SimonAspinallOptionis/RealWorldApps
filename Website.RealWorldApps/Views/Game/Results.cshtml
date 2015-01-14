@@ -47,39 +47,5 @@
                 </div>
             </li>
         }
-
-        @*@foreach (var game in Model)
-        {
-            <li>
-                <div class="panel-body">
-                    <div class="panel-body">
-                        <div class="row text-center">
-                            <a href="~/Game/GameDetails?id=1">
-                                <img src="~/Content/Images/@game.ImgName" alt="@game.OpponentName" class="img-rounded" style="height: 120px; width:120px;" />
-                            </a>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            Opponent: @game.OpponentName
-                        </div>
-                        <div class="row">
-                            Final Score: @game.CheshireScore : @game.OpponentScore
-                            @if (game.WonGame)
-                            {
-                                <span>W</span>
-                            }
-                            else
-                            {
-                                <span>L</span>
-                            }
-                        </div>
-                        <div class="row">
-                            Location: @game.Location
-                        </div>
-                    </div>
-                </div>
-            </li>
-        }*@
     </ul>
 </div>

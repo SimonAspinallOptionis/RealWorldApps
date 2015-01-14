@@ -8,6 +8,9 @@ namespace Website.RealWorldApps
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/lightbox").Include(
+                        "~/Scripts/lightbox-2.6.js*"));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/bootstrap.js*"));
 
@@ -40,7 +43,8 @@ namespace Website.RealWorldApps
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/site.css",
-                        "~/Content/bootstrap-superhero.css"));
+                        "~/Content/bootstrap-superhero.css",
+                        "~/Content/lightbox.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
