@@ -1,0 +1,34 @@
+﻿@model List<Website.RealWorldApps.Models.TeamStats>
+
+@{
+    ViewBag.Title = "LeagueTable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<table class="table table-striped">
+    <tr class="success">
+        <th>Team Name</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Points For</th>
+        <th>Points Against</th>
+        <th>Points Difference</th>
+        <th>Team Points</th>
+    </tr>
+    @foreach (var team in Model)
+    {
+        <tr>
+            <td>@team.TeamName</td>
+            <td>@team.Wins</td>
+            <td>@team.Losses</td>
+            <td>@team.PointsFor</td>
+            <td>@team.PointsAgainst</td>
+            <td>@team.PointsDifference</td>
+            <td>@team.Points</td>
+        </tr>
+    }
+</table>

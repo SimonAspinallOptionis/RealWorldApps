@@ -19,5 +19,13 @@ namespace Website.RealWorldApps.Controllers
         {
             return View();
         }
+
+        public ActionResult LeagueTable()
+        {
+            var data = new Data();
+            data.AddLeagueTable();
+            data.LeagueTable = data.LeagueTable.OrderByDescending(t => t.Points).ThenBy(t => t.PointsDifference).ThenBy(t => t.PointsFor).ToList();
+            return View(data.LeagueTable);
+        }
     }
 }

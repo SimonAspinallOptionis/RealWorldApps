@@ -144,6 +144,7 @@
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\TeamStats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +290,7 @@
     <Content Include="Views\Home\ContactUs.cshtml" />
     <Content Include="Views\View\Gallery.cshtml" />
     <Content Include="Views\View\Video.cshtml" />
+    <Content Include="Views\View\LeagueTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

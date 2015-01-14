@@ -1,7 +1,7 @@
 ﻿@model List<Website.RealWorldApps.Models.News>
 
 @{
-    ViewBag.Title = "News Page";
+    ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,14 +9,54 @@
     <h2>@ViewBag.Title</h2>
 </div>
 
-<div class="panel">
-    @foreach (var story in Model)
-    {
-        <div class="panel-heading text-uppercase" style="margin-bottom:0; padding-bottom:0; border-top: #2b3e50 5px solid">
-            @story.Headline
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#welcome" data-toggle="tab">Welcome</a></li>
+    <li><a href="#news" data-toggle="tab">News</a></li>
+    <li><a href="#fixture" data-toggle="tab">Next Fixture</a></li>
+    <li><a href="#result" data-toggle="tab">Previous Result</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="welcome">
+        <div class="page-header">
+            <b>Welcome</b>
         </div>
         <div class="panel-body">
-            @story.Body
+            <div class="text-left">
+                Welcome to the Cheshire Wire White website
+            </div>
+            <div class="text-left">
+                This website holds all the information you might need to know about Cheshire Wire White!
+            </div>
         </div>
-    }
+    </div>
+    <div class="tab-pane fade" id="news">
+        @foreach (var item in Model)
+        {
+            <div class="page-header text-capitalize">
+                <b>@item.Headline</b>
+            </div>
+            <div class="panel-body text-left">
+                @item.Body
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade" id="fixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.FixtureOpponent</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.FixtureDate <br/>
+            <b>Location:</b>&nbsp;@ViewBag.FixtureLocation
+        </div>
+    </div>
+    <div class="tab-pane fade" id="result">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.ResultOpponent</b>
+        </div>
+        <div class="panel-body">
+            <b>Final Score:</b>&nbsp;@ViewBag.ResultScore<br />
+            <b>Tip Off:</b>&nbsp;@ViewBag.ResultDate <br/>
+            <b>Location:</b>&nbsp;@ViewBag.ResultLocation
+        </div>
+    </div>
 </div>
