@@ -1,0 +1,41 @@
+﻿@model List<Website.RealWorldApps.Models.Coach>
+
+@{
+    ViewBag.Title = "Team";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Team</h2>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#coaches" data-toggle="tab">Coaches</a></li>
+    <li><a href="#news" data-toggle="tab">News</a></li>
+    <li><a href="#fixture" data-toggle="tab">Next Fixture</a></li>
+    <li><a href="#result" data-toggle="tab">Previous Result</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="coaches">
+            @foreach (var coach in Model)
+            {
+                <div class="page-header text-center">
+                    <div class="text-center">
+                        <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;" />
+                    </div>
+                    <div class="panel-body">
+                        <div class="text-center">
+                            @coach.Name
+                        </div>
+                        <div class="text-center">
+                            @coach.Position
+                        </div>
+                    </div>
+                </div>
+            }
+    </div>
+    <div class="tab-pane fade" id="news">
+    </div>
+    <div class="tab-pane fade" id="fixture">
+    </div>
+    <div class="tab-pane fade" id="result">
+    </div>
+</div>

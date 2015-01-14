@@ -21,10 +21,16 @@ namespace Website.RealWorldApps.Controllers
 
         public ActionResult Coaches()
         {
+            
+            return View(DataCoaches);
+        }
+
+        public ActionResult Team()
+        {
             var data = new Data();
             data.AddCoaches();
             DataCoaches = data.Coaches;
-            return View(DataCoaches);
+            return View();
         }
 
     }
