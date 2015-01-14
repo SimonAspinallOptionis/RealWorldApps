@@ -250,7 +250,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Team\Players.cshtml" />
     <Content Include="Views\Team\Coaches.cshtml" />
-    <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\Game\Results.cshtml" />
     <Content Include="Views\Game\GameDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>

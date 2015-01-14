@@ -5,7 +5,7 @@ namespace Website.RealWorldApps.Controllers
 {
     public class GameController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Results()
         {
             var data = new Data();
             data.Games = data.Games.OrderByDescending(g => g.TipOff).ToList();
