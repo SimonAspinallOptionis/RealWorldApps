@@ -5,10 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="panel-body">
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<div class="panel">
     @foreach (var story in Model)
     {
-        <div class="page-header text-uppercase" style="margin-bottom:0; padding-bottom:0;">
+        <div class="panel-heading text-uppercase" style="margin-bottom:0; padding-bottom:0; border-top: #2b3e50 5px solid">
             @story.Headline
         </div>
         <div class="panel-body">

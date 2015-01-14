@@ -1,0 +1,60 @@
+﻿@model Website.RealWorldApps.Models.Game
+
+@{
+    ViewBag.Title = "Game Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<div class="panel">
+    <div class="panel-heading">
+        Cheshire Wire White vs @Model.OpponentName
+    </div>
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#GameStory" data-toggle="tab" aria-expanded="true">Game Story</a></li>
+            <li class=""><a href="#BoxScore" data-toggle="tab" aria-expanded="false">Box Score</a></li>
+            <li class=""><a href="#ShotChart" data-toggle="tab" aria-expanded="false">Shot Chart</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="GameStory">
+                <div class="panel-body">
+                    @Html.Raw(Model.GameStory)
+                </div>
+            </div>
+            <div class="tab-pane fade" id="BoxScore">
+                <div class="panel-body">
+                    <table class="table">
+                        <tr class="success">
+                            <th>Player Name</th>
+                            <th>FGM-A</th>
+                            <th>2PM-A</th>
+                            <th>3PM-A</th>
+                            <th>FTM-A</th>
+                            <th>Reb Off</th>
+                            <th>Reb Def</th>
+                            <th>Total Reb</th>
+                            <th>Assists</th>
+                            <th>Steals</th>
+                            <th>Turnovers</th>
+                            <th>Blocks</th>
+                            <th>Fouls</th>
+                            <th>FPF</th>
+                            <th>Effieciency</th>
+                            <th>Points</th>
+                        </tr>
+                        @Html.Raw(Model.BoxScoreHtml)
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ShotChart">
+                <div class="panel-body">
+                    <img src="~/Content/Images/ShotCharts/ShotChart_@Model.ShotChartUrl" alt="@Model.OpponentName" class="img-rounded" style="height: 400px; width: 400px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

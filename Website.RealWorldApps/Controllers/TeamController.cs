@@ -15,7 +15,8 @@ namespace Website.RealWorldApps.Controllers
         public ActionResult Players()
         {
             DataPlayers = data.Players;
-            return View(DataPlayers.OrderBy(p=>p.JerseyNumber));
+            DataPlayers = DataPlayers.OrderBy(p => p.JerseyNumber).ToList();
+            return View(DataPlayers);
         }
 
         public ActionResult Coaches()
