@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Website.RealWorldApps.Controllers
@@ -24,6 +25,7 @@ namespace Website.RealWorldApps.Controllers
         {
             var data = new Data();
             data.AddSchedule();
+            data.Schedule = data.Schedule.Where(f => f.TipOff > DateTime.Now).ToList();
             return View(data.Schedule);
         }
 

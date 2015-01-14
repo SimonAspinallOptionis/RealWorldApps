@@ -155,7 +155,13 @@
     <Content Include="Content\Images\Coaches\MikeHalpin.jpg" />
     <Content Include="Content\Images\England_Basketball.jpg" />
     <Content Include="Content\Images\Gallery\CheshireWire.jpg" />
+    <Content Include="Content\Images\Players\CheshireWire.jpg" />
     <Content Include="Content\Images\ShotCharts\ShotChart_CheshireWireGreen_1.jpg" />
+    <Content Include="Content\Images\ShotCharts\ShotChart_ChildwallAcademy_1.jpg" />
+    <Content Include="Content\Images\ShotCharts\ShotChart_ManchesterMagicII_1.jpg" />
+    <Content Include="Content\Images\ShotCharts\ShotChart_OldhamTitansII_1.jpg" />
+    <Content Include="Content\Images\ShotCharts\ShotChart_OldhamTitansI_1.jpg" />
+    <Content Include="Content\Images\ShotCharts\ShotChart_SheffieldSaints_1.jpg" />
     <Content Include="Content\Images\TeamLogos\CheshireWire_Basketball.jpg" />
     <Content Include="Content\Images\TeamLogos\Cheshire_Basketball.jpg" />
     <Content Include="Content\Images\TeamLogos\Childwall_Basketball.jpg" />
@@ -286,7 +292,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\Players\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

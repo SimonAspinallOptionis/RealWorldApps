@@ -21,9 +21,9 @@ namespace Website.RealWorldApps.Models
             {
                 if (string.IsNullOrEmpty(_shotChartUrl))
                 {
-                    _shotChartUrl = "CheshireWire.jpg";
+                    return "England_Basketball.jpg";
                 }
-                return _shotChartUrl;
+                return "/ShotCharts/ShotChart_" + _shotChartUrl;
             }
             set
             {
