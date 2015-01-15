@@ -158,6 +158,7 @@
     <Content Include="Content\Images\Coaches\MikeHalpin.jpg" />
     <Content Include="Content\Images\England_Basketball.jpg" />
     <Content Include="Content\Images\Gallery\CheshireWire.jpg" />
+    <Content Include="Content\Images\Gallery\Under13.jpg" />
     <Content Include="Content\Images\Players\CheshireWire.jpg" />
     <Content Include="Content\Images\ShotCharts\ShotChart_CheshireWireGreen_1.jpg" />
     <Content Include="Content\Images\ShotCharts\ShotChart_ChildwallAcademy_1.jpg" />
@@ -293,6 +294,10 @@
     <Content Include="Views\View\Gallery.cshtml" />
     <Content Include="Views\View\Video.cshtml" />
     <Content Include="Views\View\LeagueTable.cshtml" />
+    <Content Include="Views\Team\AddPlayer.cshtml" />
+    <Content Include="Views\Game\AddResult.cshtml" />
+    <Content Include="Views\Game\AddFixture.cshtml" />
+    <Content Include="Views\Team\AddCoach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

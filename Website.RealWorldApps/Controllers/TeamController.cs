@@ -7,7 +7,7 @@ namespace Website.RealWorldApps.Controllers
 {
     public class TeamController : Controller
     {
-        private List<Player> DataPlayers { get; set;}
+        private List<Player> DataPlayers { get; set; }
         private Data Data { get; set; }
 
         public ActionResult Players()
@@ -22,6 +22,34 @@ namespace Website.RealWorldApps.Controllers
         {
             Data = HomeController.Data;
             return View(Data.League.Team.Coaches);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddPlayer()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddCoach()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddPlayer(string league, string playerName, int playerNumber, string position, string imgUrl)
+        {
+            Data = HomeController.Data;
+            Data.Leagues.Where(l => l.Name == league).ToList()[0].Team.Players.Add(new Player { Name = playerName, JerseyNumber = playerNumber, Position = position, ImgName = imgUrl });
+            return RedirectToAction("Players");
+        }
+
+        [HttpPost]
+        public ActionResult AddCoach(string league, string coachName, string position, string imgUrl)
+        {
+            Data = HomeController.Data;
+            Data.Leagues.Where(l => l.Name == league).ToList()[0].Team.Coaches.Add(new Coach { Name = coachName, Position = position, ImgName = imgUrl });
+            return RedirectToAction("Coaches");
         }
     }
 }

@@ -28,5 +28,35 @@ namespace Website.RealWorldApps.Controllers
             return View(Data.League.Team.Schedule);
         }
 
+        [Authorize(Roles="Admin")]
+        public ActionResult AddResult()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddFixture()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult AddResult(string league, string opponentName, string organisation, DateTime tipOff, string location, int cheshireScore, int opponentScore, bool wonGame, string boxScore, string gameStory, string shotChartUrl, string imgName)
+        {
+            Data = HomeController.Data;
+            Data.Leagues.Where(r => r.Name == league).ToList()[0].Team.Results.Add(new Models.Game { OpponentName = opponentName, Organisation = organisation, TipOff = tipOff, Location = location, CheshireScore = cheshireScore, OpponentScore = opponentScore, WonGame = wonGame, BoxScoreHtml = boxScore, GameStory = gameStory, ShotChartUrl = shotChartUrl, ImgName = imgName });
+            return RedirectToAction("Results");
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult AddFixture(string league, string opponentName, DateTime tipOff, string location, string teamLogoUrl)
+        {
+            Data = HomeController.Data;
+            Data.Leagues.Where(f => f.Name == league).ToList()[0].Team.Schedule.Add(new Models.Fixture { OpponentName = opponentName, TipOff = tipOff, Location = location, TeamLogoUrl = teamLogoUrl });
+            return RedirectToAction("Schedule");
+        }
+
     }
 }

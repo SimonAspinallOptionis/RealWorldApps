@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "AddResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Result</h2>
+
+<form method="post" action="/Game/AddResult">
+    <div class="page-header">
+        <h2>Add New Result</h2>
+    </div>
+    <div class="panel">
+        <div class="panel-body">
+            <ul class="list-unstyled">
+                <li>League: @Html.TextBox("league")</li>
+                <li>Opponent Name: @Html.TextBox("opponentName")</li>
+                <li>Organisation: @Html.TextBox("organisation")</li>
+                <li>Tip Off: @Html.TextBox("tipOff")</li>
+                <li>Location: @Html.TextBox("location")</li>
+                <li>Cheshire Score: @Html.TextBox("cheshireScore")</li>
+                <li>Opponent Score: @Html.TextBox("opponentScore")</li>
+                <li>Won Game: @Html.TextBox("wonGame")</li>
+                <li>Box Score Html: @Html.TextBox("boxScore")</li>
+                <li>Game Story: @Html.TextBox("gameStory")</li>
+                <li>Shot Chart Url: @Html.TextBox("shotChartUrl")</li>
+                <li>Img Url: @Html.TextBox("imgName")</li>
+            </ul>
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+</form>

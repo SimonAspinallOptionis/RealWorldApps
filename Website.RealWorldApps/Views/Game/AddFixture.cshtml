@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "AddFixture";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Fixture</h2>
+
+<form method="post" action="/Game/AddFixture">
+    <div class="page-header">
+        <h2>Add New Fixture</h2>
+    </div>
+    <div class="panel">
+        <div class="panel-body">
+            <ul class="list-unstyled">
+                <li>League: @Html.TextBox("league")</li>
+                <li>Opponent Name: @Html.TextBox("opponentName")</li>
+                <li>Tip Off: @Html.TextBox("tipOff")</li>
+                <li>Location: @Html.TextBox("location")</li>
+            </ul>
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+</form>

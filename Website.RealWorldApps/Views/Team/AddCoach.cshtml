@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "AddCoach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddCoach</h2>
+
+<form method="post" action="/Team/AddCoach">
+    <div class="page-header">
+        <h2>Add New Coach</h2>
+    </div>
+    <div class="panel">
+        <div class="panel-body">
+            <ul class="list-unstyled">
+                <li>League: @Html.TextBox("league")</li>
+                <li>Name: @Html.TextBox("coachName")</li>
+                <li>Position: @Html.TextBox("position")</li>
+                <li>Img Name: @Html.TextBox("imgUrl")</li>
+            </ul>
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+</form>
