@@ -8,5 +8,6 @@ namespace Website.RealWorldApps.Models
         public List<Fixture> Schedule { get; set; }
         public List<Coach> Coaches { get; set; }
         public List<Player> Players { get; set; }
+        public string Name { get; set; }
     }
 }

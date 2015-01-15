@@ -12,7 +12,7 @@ namespace Website.RealWorldApps.Controllers
 
         public ActionResult Gallery()
         {
-            return View(_data.Gallery);
+            return View();
         }
 
         public ActionResult Video()

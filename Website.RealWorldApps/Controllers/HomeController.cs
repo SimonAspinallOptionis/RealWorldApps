@@ -14,15 +14,16 @@ namespace Website.RealWorldApps.Controllers
         {
             Data = new Data();
             Data.AddLeagues();
+            Data.AddTeams("Under 13", "White");
             Data.AddNews();
             Data.AddImages();
-            Data.AddLeagueTable("Under 13");
-            Data.AddGames("Under 13");
-            Data.AddSchedule("Under 13");
-            Data.AddCoaches("Under 13");
-            Data.AddPlayers("Under 13");
-            ViewBag.Under13Fixture = Data.League.Team.Schedule.Where(g => g.TipOff > DateTime.Now).OrderBy(g => g.TipOff).ToList()[0];
-            ViewBag.Under13Result = Data.League.Team.Results.Where(g => g.TipOff < DateTime.Now).OrderByDescending(g => g.TipOff).ToList()[0];
+            Data.AddLeagueTable("Under 13", "White");
+            Data.AddGames("Under 13", "White");
+            Data.AddSchedule("Under 13", "White");
+            Data.AddCoaches("Under 13", "White");
+            Data.AddPlayers("Under 13","White");
+            ViewBag.Under13Fixture = Data.League.Teams[0].Schedule.Where(g => g.TipOff > DateTime.Now).OrderBy(g => g.TipOff).ToList()[0];
+            ViewBag.Under13Result = Data.League.Teams[0].Results.Where(g => g.TipOff < DateTime.Now).OrderByDescending(g => g.TipOff).ToList()[0];
 
             return View(Data.News);
         }

@@ -10,14 +10,41 @@
 </div>
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#under13" data-toggle="tab">Under 13</a></li>
+    <li class="dropdown active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 13&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="active"><a href="#white" data-toggle="tab">White</a></li>
+            <li class="divider"></li>
+            <li><a href="#green" data-toggle="tab">Green</a></li>
+        </ul>
+    </li>
     <li><a href="#under14" data-toggle="tab">Under 14</a></li>
     <li><a href="#under15" data-toggle="tab">Under 15</a></li>
-    <li><a href="#under16" data-toggle="tab">Under 16</a></li>
-    <li><a href="#under18" data-toggle="tab">Under 18</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 16&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference16" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier16" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 18&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference18" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier18" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
 </ul>
 <div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade active in" id="under13">
+    <div class="tab-pane fade active in" id="white">
         <ul class="list-inline">
             @for (int i = 0; i < Model.Count; i++)
             {
@@ -54,6 +81,11 @@
             }
         </ul>
     </div>
+    <div class="tab-pane fade in" id="green">
+        <div class="page-header text-center">
+            Under 13 Green Under Construction
+        </div>
+    </div>
     <div class="tab-pane fade in" id="under14">
         <div class="page-header text-center">
             Under 14 Under Construction
@@ -64,14 +96,24 @@
             Under 15 Under Construction
         </div>
     </div>
-    <div class="tab-pane fade in" id="under16">
+    <div class="tab-pane fade in" id="conference16">
         <div class="page-header text-center">
-            Under 16 Under Construction
+            Under 16 Conference Under Construction
         </div>
     </div>
-    <div class="tab-pane fade in" id="under18">
+    <div class="tab-pane fade in" id="premier16">
         <div class="page-header text-center">
-            Under 18 Under Construction
+            Under 16 Premier Under Construction
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="conference18">
+        <div class="page-header text-center">
+            Under 18 Conference Under Construction
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="premier18">
+        <div class="page-header text-center">
+            Under 18 Premier Under Construction
         </div>
     </div>
 </div>

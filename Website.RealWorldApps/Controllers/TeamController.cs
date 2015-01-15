@@ -13,7 +13,7 @@ namespace Website.RealWorldApps.Controllers
         public ActionResult Players()
         {
             Data = HomeController.Data;
-            DataPlayers = Data.League.Team.Players;
+            DataPlayers = Data.League.Teams[0].Players;
             DataPlayers = DataPlayers.OrderBy(p => p.JerseyNumber).ToList();
             return View(DataPlayers);
         }
@@ -21,7 +21,7 @@ namespace Website.RealWorldApps.Controllers
         public ActionResult Coaches()
         {
             Data = HomeController.Data;
-            return View(Data.League.Team.Coaches);
+            return View(Data.League.Teams[0].Coaches);
         }
 
         [Authorize(Roles = "Admin")]
@@ -40,7 +40,7 @@ namespace Website.RealWorldApps.Controllers
         public ActionResult AddPlayer(string league, string playerName, int playerNumber, string position, string imgUrl)
         {
             Data = HomeController.Data;
-            Data.Leagues.Where(l => l.Name == league).ToList()[0].Team.Players.Add(new Player { Name = playerName, JerseyNumber = playerNumber, Position = position, ImgName = imgUrl });
+            Data.Leagues.Where(l => l.Name == league).ToList()[0].Teams[0].Players.Add(new Player { Name = playerName, JerseyNumber = playerNumber, Position = position, ImgName = imgUrl });
             return RedirectToAction("Players");
         }
 
@@ -48,7 +48,7 @@ namespace Website.RealWorldApps.Controllers
         public ActionResult AddCoach(string league, string coachName, string position, string imgUrl)
         {
             Data = HomeController.Data;
-            Data.Leagues.Where(l => l.Name == league).ToList()[0].Team.Coaches.Add(new Coach { Name = coachName, Position = position, ImgName = imgUrl });
+            Data.Leagues.Where(l => l.Name == league).ToList()[0].Teams[0].Coaches.Add(new Coach { Name = coachName, Position = position, ImgName = imgUrl });
             return RedirectToAction("Coaches");
         }
     }
