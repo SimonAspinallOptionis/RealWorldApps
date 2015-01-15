@@ -1,4 +1,4 @@
-﻿@model List<Website.RealWorldApps.Models.Coach>
+﻿@model Website.RealWorldApps.Data
 
 @{
     ViewBag.Title = "Coaches";
@@ -45,7 +45,7 @@
 </ul>
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active in" id="white">
-        @foreach (var coach in Model)
+        @foreach (var coach in Model.Leagues.First(t => t.Name == "Under 13").Teams.First(t => t.Name == "White").Coaches)
         {
             <div class="page-header text-center">
                 <div class="text-center">
@@ -63,38 +63,129 @@
         }
     </div>
     <div class="tab-pane fade in" id="green">
-        <div class="page-header text-center">
-            Under 13 Green Under Construction
-        </div>
+        @foreach (var coach in Model.Leagues.First(t => t.Name == "Under 13").Teams.First(t => t.Name == "Green").Coaches)
+        {
+            <div class="page-header text-center">
+                <div class="text-center">
+                    <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;" />
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        @coach.Name
+                    </div>
+                    <div class="text-center">
+                        @coach.Position
+                    </div>
+                </div>
+            </div>
+        }
     </div>
     <div class="tab-pane fade in" id="under14">
-        <div class="page-header text-center">
-            Under 14 Under Construction
-        </div>
+        @foreach (var coach in Model.Leagues.First(t => t.Name == "Under 14").Teams.First(t => t.Name == "").Coaches)
+        {
+            <div class="page-header text-center">
+                <div class="text-center">
+                    <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;" />
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        @coach.Name
+                    </div>
+                    <div class="text-center">
+                        @coach.Position
+                    </div>
+                </div>
+            </div>
+        }
     </div>
     <div class="tab-pane fade in" id="under15">
-        <div class="page-header text-center">
-            Under 15 Under Construction
-        </div>
+        @foreach (var coach in Model.Leagues.First(t => t.Name == "Under 15").Teams.First(t => t.Name == "").Coaches)
+        {
+            <div class="page-header text-center">
+                <div class="text-center">
+                    <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;" />
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        @coach.Name
+                    </div>
+                    <div class="text-center">
+                        @coach.Position
+                    </div>
+                </div>
+            </div>
+        }
     </div>
     <div class="tab-pane fade in" id="conference16">
-        <div class="page-header text-center">
-            Under 16 Conference Under Construction
-        </div>
+        @foreach (var coach in Model.Leagues.First(t => t.Name == "Under 16").Teams.First(t => t.Name == "Conference").Coaches)
+        {
+            <div class="page-header text-center">
+                <div class="text-center">
+                    <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;" />
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        @coach.Name
+                    </div>
+                    <div class="text-center">
+                        @coach.Position
+                    </div>
+                </div>
+            </div>
+        }
     </div>
     <div class="tab-pane fade in" id="premier16">
-        <div class="page-header text-center">
-            Under 16 Premier Under Construction
-        </div>
+        @foreach (var coach in Model.Leagues.First(t => t.Name == "Under 16").Teams.First(t => t.Name == "Premier").Coaches)
+        {
+            <div class="page-header text-center">
+                <div class="text-center">
+                    <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;" />
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        @coach.Name
+                    </div>
+                    <div class="text-center">
+                        @coach.Position
+                    </div>
+                </div>
+            </div>
+        }
     </div>
     <div class="tab-pane fade in" id="conference18">
-        <div class="page-header text-center">
-            Under 18 Conference Under Construction
-        </div>
+        @foreach (var coach in Model.Leagues.First(t => t.Name == "Under 18").Teams.First(t => t.Name == "Conference").Coaches)
+        {
+            <div class="page-header text-center">
+                <div class="text-center">
+                    <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;" />
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        @coach.Name
+                    </div>
+                    <div class="text-center">
+                        @coach.Position
+                    </div>
+                </div>
+            </div>
+        }
     </div>
     <div class="tab-pane fade in" id="premier18">
-        <div class="page-header text-center">
-            Under 18 Premier Under Construction
-        </div>
+        @foreach (var coach in Model.Leagues.First(t => t.Name == "Under 18").Teams.First(t => t.Name == "Premier").Coaches)
+        {
+            <div class="page-header text-center">
+                <div class="text-center">
+                    <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;" />
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        @coach.Name
+                    </div>
+                    <div class="text-center">
+                        @coach.Position
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>

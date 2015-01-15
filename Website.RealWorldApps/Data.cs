@@ -38,13 +38,10 @@ namespace Website.RealWorldApps
             Leagues.Add(new League { Name = "Under 18", Teams = new List<Team>() });
         }
 
-        public void AddTeams(string leagueName, string name)
+        public void AddTeam(string leagueName, string name)
         {
-            League = Leagues.Where(l => l.Name == leagueName).ToList()[0];
-            if (League.Name == "Under 13" || League.Name == "Under 16" || League.Name == "Under 18")
-            {
-                League.Teams.Add(new Team { Players = new List<Player>(), Coaches = new List<Coach>(), Results = new List<Game>(), Schedule = new List<Fixture>(), Name = name });
-            }
+            League = Leagues.First(l => l.Name == leagueName);
+            League.Teams.Add(new Team { Players = new List<Player>(), Coaches = new List<Coach>(), Results = new List<Game>(), Schedule = new List<Fixture>(), Name = name });
         }
 
         public void AddPlayers(string leagueName, string name)
@@ -67,16 +64,63 @@ namespace Website.RealWorldApps
 
         public void AddCoaches(string leagueName, string name)
         {
-            League = Leagues.Where(l => l.Name == leagueName).ToList()[0];
-            League.Teams[0].Coaches.Add(new Coach { Name = "Mike Halpin", Position = "Head Coach", ImgName = "MikeHalpin.jpg" });
-            League.Teams[0].Coaches.Add(new Coach { Name = "Kelly Hope", Position = "Assistant Coach" });
-            League.Teams[0].Coaches.Add(new Coach { Name = "Simon Aspinall", Position = "Assistant Coach" });
+            League = Leagues.First(l => l.Name == leagueName);
+            var team = Leagues.First(l=>l.Name==leagueName).Teams.First(t => t.Name == name);
+            if(League.Name == "Under 13")
+            {
+                AddUnder13Coaches(team, name);
+            }
+            if(League.Name=="Under 14")
+            {
+                AddUnder14Coaches(team, name);
+            }
+            if (League.Name=="Under 15")
+            {
+                AddUnder15Coaches(team, name);
+            }
+            if(League.Name =="Under 16" && team.Name=="Conference")
+            {
+                team.Coaches.Add(new Coach { Name = "", Position = "Head Coach" });
+            }
+            if(League.Name=="Under 16" && team.Name=="Premier")
+            {
+                team.Coaches.Add(new Coach { Name = "Carl Wilson", Position = "Head Coach" });
+            }
+            if(League.Name=="Under 18" && team.Name=="Conference")
+            {
+                team.Coaches.Add(new Coach { Name = "", Position = "Head Coach" });
+            }
+            if(League.Name=="Under 18" && team.Name=="Premier")
+            {
+                team.Coaches.Add(new Coach { Name = "Mike Halpin", Position = "Head Coach", ImgName="MikeHalpin.jpg" });
+                team.Coaches.Add(new Coach { Name = "Colin Geering", Position = "Assistant Coach" });
+            }
+        }
+
+        private void AddUnder14Coaches(Team team, string name)
+        {
+            team.Coaches.Add(new Coach { Name = "Steve Welsh", Position = "Head Coach" });
+        }
+
+        private void AddUnder13Coaches(Team team, string name)
+        {
+            if (League.Name == "Under 13" && team.Name == "White")
+            {
+                team.Coaches.Add(new Coach { Name = "Mike Halpin", Position = "Head Coach", ImgName = "MikeHalpin.jpg" });
+                team.Coaches.Add(new Coach { Name = "Kelly Hope", Position = "Assistant Coach" });
+                team.Coaches.Add(new Coach { Name = "Simon Aspinall", Position = "Assistant Coach" });
+            }
+            if (League.Name == "Under 13" && team.Name == "Green")
+            {
+                team.Coaches.Add(new Coach { Name = "Dave", Position = "Head Coach" });
+                team.Coaches.Add(new Coach { Name = "Mike", Position = "Assistant Coach" });
+            }
         }
 
         public void AddGames(string leagueName, string name)
         {
             League = Leagues.Where(l => l.Name == leagueName).ToList()[0];
-            League.Teams[0].Results.Add(new Game { OpponentName = "Childwall Academy", Organisation = "Childwall", Location = "Priestley College, Warrington", TipOff = new DateTime(2015, 01, 10, 12, 00, 00), CheshireScore = 52, OpponentScore = 64, WonGame = false, GameStory="<div>Having beaten Cheshire Wire in their previous encounter, Childwall were confident going into this game. Coach Iwediebo sent his charges onto the court ready to do some damage to the opposition's basket.</div><br/><div>Childwall’s captain Dan Gargan drew first blood, however Wire had a 6-0 run and looked the most likely as the Liverpool side failed to make a number of lay-ups.</div><br/><div>The team drew on some confidence from Patty Jones and Harvey Bleasdale who were outstanding throughout as the quarter ended Childwall three points adrift.</div><br/><div>Wire enjoyed success in the second quarter, as just like the first Childwall struggled to make their chances count. Creating chances wasn't the problem, but they still found themselves down by one.</div><br/><div>A turning point came when baskets from Wes Iwediebo, Beth McLoughlin and a charge from Patty Jones propelled Childwall into the lead.</div><br/><div>The turn around proved decisive. Going into the second half, there was daylight between the two teams and Wire never recovered. A big second half push only cemented Childwall's position who held a 44-27 lead at one stage.</div><br/><div>A spirited fight back ensured by Wire, who showed their tenacity. Childwall kept them at bay however, as they increase their total to 52 points.</div><br/><div>The last period again belonged to Jones, assisted by the tough defensive play of Lois Aioanei and baskets from Beth McLoughlin and Dan Gargan.</div><br/>" });
+            League.Teams[0].Results.Add(new Game { OpponentName = "Childwall Academy", Organisation = "Childwall", Location = "Priestley College, Warrington", TipOff = new DateTime(2015, 01, 10, 12, 00, 00), CheshireScore = 52, OpponentScore = 64, WonGame = false, GameStory = "<div>Having beaten Cheshire Wire in their previous encounter, Childwall were confident going into this game. Coach Iwediebo sent his charges onto the court ready to do some damage to the opposition's basket.</div><br/><div>Childwall’s captain Dan Gargan drew first blood, however Wire had a 6-0 run and looked the most likely as the Liverpool side failed to make a number of lay-ups.</div><br/><div>The team drew on some confidence from Patty Jones and Harvey Bleasdale who were outstanding throughout as the quarter ended Childwall three points adrift.</div><br/><div>Wire enjoyed success in the second quarter, as just like the first Childwall struggled to make their chances count. Creating chances wasn't the problem, but they still found themselves down by one.</div><br/><div>A turning point came when baskets from Wes Iwediebo, Beth McLoughlin and a charge from Patty Jones propelled Childwall into the lead.</div><br/><div>The turn around proved decisive. Going into the second half, there was daylight between the two teams and Wire never recovered. A big second half push only cemented Childwall's position who held a 44-27 lead at one stage.</div><br/><div>A spirited fight back ensured by Wire, who showed their tenacity. Childwall kept them at bay however, as they increase their total to 52 points.</div><br/><div>The last period again belonged to Jones, assisted by the tough defensive play of Lois Aioanei and baskets from Beth McLoughlin and Dan Gargan.</div><br/>" });
             League.Teams[0].Results.Add(new Game { OpponentName = "Manchester Magic I", Organisation = "Manchester", Location = "Amaechi Centre, Manchester", TipOff = new DateTime(2014, 12, 21, 13, 00, 00), CheshireScore = 37, OpponentScore = 103, WonGame = false });
             League.Teams[0].Results.Add(new Game { OpponentName = "Manchester Magic II", Organisation = "Manchester", Location = "Priestley College, Warrington", TipOff = new DateTime(2014, 12, 13, 14, 00, 00), CheshireScore = 64, OpponentScore = 51, WonGame = true, GameStory = "<div><div>Cheshire Wire White hosted Manchester Magic II. Having lost to Magic in their previous meeting by just three points, Wire were fired up and immediately put the pressure on the opposing side forcing multiple turnovers. Wire won the quarter 15-10.</div><br/><div>The next quarter saw Magic start to make a come back with some physical play causing Wire to give away unnecessary fouls. The quarter still showed promise for Wire and they didn't let their opponents too far out of their sight during the quarter. Wire lost the quarter 18-15.</div><br/><div>With Wire up at half time by just two points, Wire were determined not to let this one slip away from them and some terrific plays opened up their lead going into the final quarter. Wire won the quarter 18-10.</div><br/><div>Wire kept the pressure on during the final quarter not allowing any easy baskets and playing smart basketball. A few final turnovers by Magic would see Wire clinch the game for their third win of the season. Final score 64-51 to Wire.&nbsp;</div><br/><div>An outstanding individual performance by Elliot Cochrane who led the team in scoring with 21 points. Elliot also made 13 steals making this his second consecutive game with 10 or more steals, he also grabbed 8 rebounds during the contest. Finlay Williams did a tremendous job of controlling the offense and the pace of the game. Finlay helped out his team mates by dishing out 5 assists. Alex Hawkins' unselfish play to help out his team mates and tough defense didn't go unnoticed, setting some hard screens freeing up his team mates and boxing out taller players to prevent them from getting rebounds.</div></div>" });
             League.Teams[0].Results.Add(new Game { OpponentName = "Sheffield Junior Saints", Organisation = "Sheffield", Location = "All Saints High School, Sheffield", TipOff = new DateTime(2014, 12, 06, 12, 00, 00), CheshireScore = 48, OpponentScore = 75, WonGame = false });
@@ -109,7 +153,7 @@ namespace Website.RealWorldApps
             Gallery.Add(new Image { ImgName = "Under13.jpg" });
         }
 
-        public void AddLeagueTable(string leagueName, string name)
+        public void AddLeagueTable(string leagueName)
         {
             League = Leagues.Where(l => l.Name == leagueName).ToList()[0];
             LeagueTable.Add(new TeamStats { TeamName = "Manchester Magic I", Wins = 13, Losses = 0, PointsFor = 1430, PointsAgainst = 426 });

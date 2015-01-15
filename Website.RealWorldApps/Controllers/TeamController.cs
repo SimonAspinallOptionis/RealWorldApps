@@ -20,8 +20,7 @@ namespace Website.RealWorldApps.Controllers
 
         public ActionResult Coaches()
         {
-            Data = HomeController.Data;
-            return View(Data.League.Teams[0].Coaches);
+            return View(HomeController.Data);
         }
 
         [Authorize(Roles = "Admin")]
