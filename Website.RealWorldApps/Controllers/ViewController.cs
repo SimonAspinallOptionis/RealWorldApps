@@ -8,11 +8,11 @@ namespace Website.RealWorldApps.Controllers
 {
     public class ViewController : Controller
     {
+        private Data _data = HomeController.Data;
+
         public ActionResult Gallery()
         {
-            var data = new Data();
-            data.AddImages();
-            return View(data.Gallery);
+            return View(_data.Gallery);
         }
 
         public ActionResult Video()
@@ -22,10 +22,8 @@ namespace Website.RealWorldApps.Controllers
 
         public ActionResult LeagueTable()
         {
-            var data = new Data();
-            data.AddLeagueTable();
-            data.LeagueTable = data.LeagueTable.OrderByDescending(t => t.Points).ThenBy(t => t.PointsDifference).ThenBy(t => t.PointsFor).ToList();
-            return View(data.LeagueTable);
+            _data.LeagueTable = _data.LeagueTable.OrderByDescending(t => t.Points).ThenBy(t => t.PointsDifference).ThenBy(t => t.PointsFor).ToList();
+            return View(_data.LeagueTable);
         }
     }
 }

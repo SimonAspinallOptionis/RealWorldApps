@@ -5,6 +5,7 @@ namespace Website.RealWorldApps.Models
     {
         private string _imgName;
         private string _shotChartUrl;
+        private string _resultString;
 
         public string OpponentName { get; set; }
         public string Organisation { get; set; }
@@ -15,6 +16,18 @@ namespace Website.RealWorldApps.Models
         public bool WonGame { get; set; }
         public string GameStory { get; set; }
         public string BoxScoreHtml { get; set; }
+        public string ResultString
+        {
+            get
+            {
+                _resultString = string.Format("{0} : {1} ", CheshireScore, OpponentScore);
+                if(WonGame)
+                {
+                    return _resultString + "W";
+                }
+                return _resultString + "L";
+            }
+        }
         public string ShotChartUrl
         {
             get

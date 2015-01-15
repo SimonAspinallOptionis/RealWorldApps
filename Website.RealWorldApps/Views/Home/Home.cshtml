@@ -12,8 +12,38 @@
 <ul class="nav nav-tabs">
     <li class="active"><a href="#welcome" data-toggle="tab">Welcome</a></li>
     <li><a href="#news" data-toggle="tab">News</a></li>
-    <li><a href="#fixture" data-toggle="tab">Next Fixture</a></li>
-    <li><a href="#result" data-toggle="tab">Previous Result</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Next Fixture&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#under13Fixture" data-toggle="tab">Under13</a></li>
+            <li class="divider"></li>
+            <li><a href="#under14Fixture" data-toggle="tab">Under 14</a></li>
+            <li class="divider"></li>
+            <li><a href="#under15Fixture" data-toggle="tab">Under 15</a></li>
+            <li class="divider"></li>
+            <li><a href="#under16Fixture" data-toggle="tab">Under 16</a></li>
+            <li class="divider"></li>
+            <li><a href="#under18Fixture" data-toggle="tab">Under 18</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Previous Result&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#under13Result" data-toggle="tab">Under13</a></li>
+            <li class="divider"></li>
+            <li><a href="#under14Result" data-toggle="tab">Under 14</a></li>
+            <li class="divider"></li>
+            <li><a href="#under15Result" data-toggle="tab">Under 15</a></li>
+            <li class="divider"></li>
+            <li><a href="#under16Result" data-toggle="tab">Under 16</a></li>
+            <li class="divider"></li>
+            <li><a href="#under18Result" data-toggle="tab">Under 18</a></li>
+        </ul>
+    </li>
 </ul>
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active in" id="welcome">
@@ -40,23 +70,99 @@
             </div>
         }
     </div>
-    <div class="tab-pane fade" id="fixture">
+    <div class="tab-pane fade" id="under13Fixture">
         <div class="page-header text-capitalize">
-            <b>@ViewBag.FixtureOpponent</b>
+            <b>@ViewBag.Under13Fixture.OpponentName</b>
         </div>
         <div class="panel-body">
-            <b>Tip Off:</b>&nbsp;@ViewBag.FixtureDate <br/>
-            <b>Location:</b>&nbsp;@ViewBag.FixtureLocation
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under13Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under13Fixture.Location
         </div>
     </div>
-    <div class="tab-pane fade" id="result">
+    <div class="tab-pane fade" id="under14Fixture">
         <div class="page-header text-capitalize">
-            <b>@ViewBag.ResultOpponent</b>
+            <b>Under 14 Under Construction</b>
         </div>
-        <div class="panel-body">
-            <b>Final Score:</b>&nbsp;@ViewBag.ResultScore<br />
-            <b>Tip Off:</b>&nbsp;@ViewBag.ResultDate <br/>
-            <b>Location:</b>&nbsp;@ViewBag.ResultLocation
+        @*<div class="panel-body">
+        <b>Tip Off:</b>&nbsp;@ViewBag.Under14Fixture.TipOff<br />
+        <b>Location:</b>&nbsp;@ViewBag.Under14Fixture.Location
+    </div>*@
+    </div>
+    <div class="tab-pane fade" id="under15Fixture">
+        <div class="page-header text-capitalize">
+            <b>Under 15 Under Construction</b>
+        </div>
+        @*<div class="panel-body">
+                <b>Tip Off:</b>&nbsp;@ViewBag.Under15Fixture.TipOff<br />
+                <b>Location:</b>&nbsp;@ViewBag.Under15Fixture.Location
+            </div>*@
+        </div>
+        <div class="tab-pane fade" id="under16Fixture">
+            <div class="page-header text-capitalize">
+                <b>Under 16 Under Construction</b>
+            </div>
+            @*<div class="panel-body">
+                <b>Tip Off:</b>&nbsp;@ViewBag.Under16Fixture.TipOff<br />
+                <b>Location:</b>&nbsp;@ViewBag.Under16Fixture.Location
+            </div>*@
+        </div>
+        <div class="tab-pane fade" id="under18Fixture">
+            <div class="page-header text-capitalize">
+                <b>Under 18 Under Construction</b>
+            </div>
+            @*<div class="panel-body">
+                <b>Tip Off:</b>&nbsp;@ViewBag.Under18Fixture.TipOff<br />
+                <b>Location:</b>&nbsp;@ViewBag.Under18Fixture.Location
+            </div>*@
+        </div>
+        <div class="tab-pane fade" id="under13Result">
+            <div class="page-header text-capitalize">
+                <b>@ViewBag.Under13Result.OpponentName</b>
+            </div>
+            <div class="panel-body">
+                <b>Final Score:</b>&nbsp;@ViewBag.Under13Result.ResultString<br />
+                <b>Tip Off:</b>&nbsp;@ViewBag.Under13Result.TipOff<br />
+                <b>Location:</b>&nbsp;@ViewBag.Under13Result.Location
+            </div>
+        </div>
+        <div class="tab-pane fade" id="under14Result">
+            <div class="page-header text-capitalize">
+                <b>Under 14 Under Construction</b>
+            </div>
+            @*<div class="panel-body">
+                <b>Final Score:</b>&nbsp;@ViewBag.Under14Result.ResultString<br />
+                <b>Tip Off:</b>&nbsp;@ViewBag.Under14Result.TipOff<br />
+                <b>Location:</b>&nbsp;@ViewBag.Under14Result.Location
+            </div>*@
+        </div>
+        <div class="tab-pane fade" id="under15Result">
+            <div class="page-header text-capitalize">
+                <b>Under 15 Under Construction</b>
+            </div>
+            @*<div class="panel-body">
+                <b>Final Score:</b>&nbsp;@ViewBag.Under15Result.ResultString<br />
+                <b>Tip Off:</b>&nbsp;@ViewBag.Under15Result.TipOff<br />
+                <b>Location:</b>&nbsp;@ViewBag.Under15Result.Location
+            </div>*@
+        </div>
+        <div class="tab-pane fade" id="under16Result">
+            <div class="page-header text-capitalize">
+                <b>Under 16 Under Construction</b>
+            </div>
+            @*<div class="panel-body">
+                <b>Final Score:</b>&nbsp;@ViewBag.Under16Result.ResultString<br />
+                <b>Tip Off:</b>&nbsp;@ViewBag.Under16Result.TipOff<br />
+                <b>Location:</b>&nbsp;@ViewBag.Under16Result.Location
+            </div>*@
+        </div>
+        <div class="tab-pane fade" id="under18Result">
+            <div class="page-header text-capitalize">
+                <b>Under 18 Under Construction</b>
+            </div>
+            @*<div class="panel-body">
+                <b>Final Score:</b>&nbsp;@ViewBag.Under18Result.ResultString<br />
+                <b>Tip Off:</b>&nbsp;@ViewBag.Under18Result.TipOff<br />
+                <b>Location:</b>&nbsp;@ViewBag.Under18Result.Location
+            </div>*@
         </div>
     </div>
-</div>

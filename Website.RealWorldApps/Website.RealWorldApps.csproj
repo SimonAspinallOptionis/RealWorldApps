@@ -142,8 +142,10 @@
     <Compile Include="Models\Fixture.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\League.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamStats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -291,7 +293,6 @@
     <Content Include="Views\View\Gallery.cshtml" />
     <Content Include="Views\View\Video.cshtml" />
     <Content Include="Views\View\LeagueTable.cshtml" />
-    <Content Include="Views\Team\Team.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

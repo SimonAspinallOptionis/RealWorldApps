@@ -9,21 +9,50 @@
     <h2>@ViewBag.Title</h2>
 </div>
 
-<div class="panel-body">
-    @foreach (var coach in Model)
-    {
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#under13" data-toggle="tab">Under 13</a></li>
+    <li><a href="#under14" data-toggle="tab">Under 14</a></li>
+    <li><a href="#under15" data-toggle="tab">Under 15</a></li>
+    <li><a href="#under16" data-toggle="tab">Under 16</a></li>
+    <li><a href="#under18" data-toggle="tab">Under 18</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="under13">
+        @foreach (var coach in Model)
+        {
+            <div class="page-header text-center">
+                <div class="text-center">
+                    <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;" />
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        @coach.Name
+                    </div>
+                    <div class="text-center">
+                        @coach.Position
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade in" id="under14">
         <div class="page-header text-center">
-            <div class="text-center">
-                <img src="~/Content/Images/@coach.ImgName" class="img-circle" alt="@coach.Name" style="height:120px; width: 120px;"/>
-            </div>
-            <div class="panel-body">
-                <div class="text-center">
-                    @coach.Name
-                </div>
-                <div class="text-center">
-                    @coach.Position
-                </div>
-            </div>
+            Under 14 Under Construction
         </div>
-    }
+    </div>
+    <div class="tab-pane fade in" id="under15">
+        <div class="page-header text-center">
+            Under 15 Under Construction
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="under16">
+        <div class="page-header text-center">
+            Under 16 Under Construction
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="under18">
+        <div class="page-header text-center">
+            Under 18 Under Construction
+        </div>
+    </div>
 </div>

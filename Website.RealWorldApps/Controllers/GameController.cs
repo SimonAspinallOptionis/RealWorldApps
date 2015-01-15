@@ -6,27 +6,26 @@ namespace Website.RealWorldApps.Controllers
 {
     public class GameController : Controller
     {
+        private Data Data { get; set; }
+
         public ActionResult Results()
         {
-            var data = new Data();
-            data.AddGames();
-            data.Games = data.Games.OrderByDescending(g => g.TipOff).ToList();
-            return View(data.Games);
+            Data = HomeController.Data;
+            Data.League.Team.Results = Data.League.Team.Results.OrderByDescending(g => g.TipOff).ToList();
+            return View(Data.League.Team.Results);
         }
 
         public ActionResult GameDetails(int id)
         {
-            var data = new Data();
-            data.AddGames();
-            return View(data.Games[id]);
+            Data = HomeController.Data;
+            return View(Data.League.Team.Results[id]);
         }
 
         public ActionResult Schedule()
         {
-            var data = new Data();
-            data.AddSchedule();
-            data.Schedule = data.Schedule.Where(f => f.TipOff > DateTime.Now).ToList();
-            return View(data.Schedule);
+            Data = HomeController.Data;
+            Data.League.Team.Schedule = Data.League.Team.Schedule.Where(f => f.TipOff > DateTime.Now).ToList();
+            return View(Data.League.Team.Schedule);
         }
 
     }

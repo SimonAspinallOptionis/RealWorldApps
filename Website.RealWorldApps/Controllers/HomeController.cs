@@ -8,31 +8,23 @@ namespace Website.RealWorldApps.Controllers
 {
     public class HomeController : Controller
     {
+        public static Data Data { get; set; }
+
         public ActionResult Home()
         {
-            var data = new Data();
-            data.AddNews();
-            data.AddGames();
-            data.AddSchedule();
-            var fixture = data.Schedule.Where(g => g.TipOff > DateTime.Now).OrderBy(g => g.TipOff).ToList()[0];
-            var result = data.Games.Where(g => g.TipOff < DateTime.Now).OrderByDescending(g => g.TipOff).ToList()[0];
-            ViewBag.FixtureDate = fixture.TipOff;
-            ViewBag.FixtureOpponent = fixture.OpponentName;
-            ViewBag.FixtureLocation = fixture.Location;
-            ViewBag.ResultDate = result.TipOff;
-            ViewBag.ResultOpponent = result.OpponentName;
-            ViewBag.ResultLocation = result.Location;
-            string wonLoss;
-            if(result.WonGame)
-            {
-                wonLoss="W";
-            }
-            else
-            {
-                wonLoss="L";
-            }
-            ViewBag.ResultScore = string.Format("{0} : {1} {2}", result.CheshireScore, result.OpponentScore, wonLoss);
-            return View(data.News);
+            Data = new Data();
+            Data.AddLeagues();
+            Data.AddNews();
+            Data.AddImages();
+            Data.AddLeagueTable("Under 13");
+            Data.AddGames("Under 13");
+            Data.AddSchedule("Under 13");
+            Data.AddCoaches("Under 13");
+            Data.AddPlayers("Under 13");
+            ViewBag.Under13Fixture = Data.League.Team.Schedule.Where(g => g.TipOff > DateTime.Now).OrderBy(g => g.TipOff).ToList()[0];
+            ViewBag.Under13Result = Data.League.Team.Results.Where(g => g.TipOff < DateTime.Now).OrderByDescending(g => g.TipOff).ToList()[0];
+
+            return View(Data.News);
         }
 
         public ActionResult AboutUs()
