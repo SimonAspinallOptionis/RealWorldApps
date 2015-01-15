@@ -150,6 +150,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CheshireWire.mdf" />
+    <Content Include="App_Data\CheshireWire_log.ldf">
+      <DependentUpon>CheshireWire.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-superhero.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -307,9 +311,7 @@
     <Content Include="Views\Game\AddFixture.cshtml" />
     <Content Include="Views\Team\AddCoach.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
