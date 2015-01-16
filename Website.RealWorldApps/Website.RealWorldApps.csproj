@@ -140,10 +140,10 @@
     </Compile>
     <Compile Include="Models\Coach.cs" />
     <Compile Include="Models\Fixture.cs" />
-    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\Result.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\League.cs" />
-    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Story.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamStats.cs" />

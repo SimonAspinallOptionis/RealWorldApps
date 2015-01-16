@@ -1,6 +1,4 @@
-﻿@model List<Website.RealWorldApps.Models.News>
-
-@{
+﻿@{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -17,15 +15,21 @@
             Next Fixture&nbsp;<span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="#under13Fixture" data-toggle="tab">Under13</a></li>
+            <li><a href="#under13WhiteFixture" data-toggle="tab">Under13 White</a></li>
+            <li class="divider"></li>
+            <li><a href="#under13GreenFixture" data-toggle="tab">Under13 Green</a></li>
             <li class="divider"></li>
             <li><a href="#under14Fixture" data-toggle="tab">Under 14</a></li>
             <li class="divider"></li>
             <li><a href="#under15Fixture" data-toggle="tab">Under 15</a></li>
             <li class="divider"></li>
-            <li><a href="#under16Fixture" data-toggle="tab">Under 16</a></li>
+            <li><a href="#under16CFixture" data-toggle="tab">Under 16 Conf</a></li>
             <li class="divider"></li>
-            <li><a href="#under18Fixture" data-toggle="tab">Under 18</a></li>
+            <li><a href="#under16PFixture" data-toggle="tab">Under16 Prem</a></li>
+            <li class="divider"></li>
+            <li><a href="#under18CFixture" data-toggle="tab">Under 18 Conf</a></li>
+            <li class="divider"></li>
+            <li><a href="#under18PFixture" data-toggle="tab">Under18 Prem</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -60,109 +64,137 @@
         </div>
     </div>
     <div class="tab-pane fade" id="news">
-        @foreach (var item in Model)
+        @foreach (var story in ViewBag.NewsCollection)
         {
             <div class="page-header text-capitalize">
-                <b>@item.Headline</b>
+                <b>@story.Headline</b>
             </div>
             <div class="panel-body text-left">
-                @item.Body
+                @story.Body
             </div>
         }
     </div>
-    <div class="tab-pane fade" id="under13Fixture">
+    <div class="tab-pane fade" id="under13WhiteFixture">
         <div class="page-header text-capitalize">
-            <b>@ViewBag.Under13Fixture.OpponentName</b>
+            <b>@ViewBag.Under13WhiteFixture.Organisation&nbsp;@ViewBag.Under13WhiteFixture.OpponentName</b>
         </div>
         <div class="panel-body">
-            <b>Tip Off:</b>&nbsp;@ViewBag.Under13Fixture.TipOff<br />
-            <b>Location:</b>&nbsp;@ViewBag.Under13Fixture.Location
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under13WhiteFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under13WhiteFixture.AddressLine1,&nbsp;@ViewBag.Under13WhiteFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under13GreenFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under13GreenFixture.Organisation&nbsp;@ViewBag.Under13GreenFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under13GreenFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under13GreenFixture.AddressLine1,&nbsp;@ViewBag.Under13GreenFixture.TownCity
         </div>
     </div>
     <div class="tab-pane fade" id="under14Fixture">
         <div class="page-header text-capitalize">
-            <b>Under 14 Under Construction</b>
+            <b>@ViewBag.Under14Fixture.Organisation&nbsp;@ViewBag.Under14Fixture.OpponentName</b>
         </div>
-        @*<div class="panel-body">
-        <b>Tip Off:</b>&nbsp;@ViewBag.Under14Fixture.TipOff<br />
-        <b>Location:</b>&nbsp;@ViewBag.Under14Fixture.Location
-    </div>*@
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under14Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under14Fixture.AddressLine1,&nbsp;@ViewBag.Under14Fixture.TownCity
+        </div>
     </div>
     <div class="tab-pane fade" id="under15Fixture">
         <div class="page-header text-capitalize">
-            <b>Under 15 Under Construction</b>
+            <b>@ViewBag.Under15Fixture.Organisation&nbsp;@ViewBag.Under15Fixture.OpponentName</b>
         </div>
-        @*<div class="panel-body">
-                <b>Tip Off:</b>&nbsp;@ViewBag.Under15Fixture.TipOff<br />
-                <b>Location:</b>&nbsp;@ViewBag.Under15Fixture.Location
-            </div>*@
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under15Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under15Fixture.AddressLine1,&nbsp;@ViewBag.Under15Fixture.TownCity
         </div>
-        <div class="tab-pane fade" id="under16Fixture">
-            <div class="page-header text-capitalize">
-                <b>Under 16 Under Construction</b>
-            </div>
-            @*<div class="panel-body">
-                <b>Tip Off:</b>&nbsp;@ViewBag.Under16Fixture.TipOff<br />
-                <b>Location:</b>&nbsp;@ViewBag.Under16Fixture.Location
-            </div>*@
+    </div>
+    <div class="tab-pane fade" id="under16CFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under16CFixture.Organisation&nbsp;@ViewBag.Under16CFixture.OpponentName</b>
         </div>
-        <div class="tab-pane fade" id="under18Fixture">
-            <div class="page-header text-capitalize">
-                <b>Under 18 Under Construction</b>
-            </div>
-            @*<div class="panel-body">
-                <b>Tip Off:</b>&nbsp;@ViewBag.Under18Fixture.TipOff<br />
-                <b>Location:</b>&nbsp;@ViewBag.Under18Fixture.Location
-            </div>*@
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under16CFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under16CFixture.AddressLine1,&nbsp;@ViewBag.Under16CFixture.TownCity
         </div>
-        <div class="tab-pane fade" id="under13Result">
-            <div class="page-header text-capitalize">
+    </div>
+    <div class="tab-pane fade" id="under16PFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under16PFixture.Organisation&nbsp;@ViewBag.Under16PFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under16PFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under16PFixture.AddressLine1,&nbsp;@ViewBag.Under16PFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under18CFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under18CFixture.Organisation&nbsp;@ViewBag.Under18CFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under18CFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under18CFixture.AddressLine1,&nbsp;@ViewBag.Under18CFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under18PFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under18PFixture.Organisation&nbsp;@ViewBag.Under18PFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under18PFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under18PFixture.AddressLine1,&nbsp;@ViewBag.Under18PFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under13Result">
+        Under Construction
+        @*<div class="page-header text-capitalize">
                 <b>@ViewBag.Under13Result.OpponentName</b>
             </div>
             <div class="panel-body">
                 <b>Final Score:</b>&nbsp;@ViewBag.Under13Result.ResultString<br />
                 <b>Tip Off:</b>&nbsp;@ViewBag.Under13Result.TipOff<br />
                 <b>Location:</b>&nbsp;@ViewBag.Under13Result.Location
-            </div>
+            </div>*@
+    </div>
+    <div class="tab-pane fade" id="under14Result">
+        <div class="page-header text-capitalize">
+            <b>Under 14 Under Construction</b>
         </div>
-        <div class="tab-pane fade" id="under14Result">
-            <div class="page-header text-capitalize">
-                <b>Under 14 Under Construction</b>
-            </div>
-            @*<div class="panel-body">
+        @*<div class="panel-body">
                 <b>Final Score:</b>&nbsp;@ViewBag.Under14Result.ResultString<br />
                 <b>Tip Off:</b>&nbsp;@ViewBag.Under14Result.TipOff<br />
                 <b>Location:</b>&nbsp;@ViewBag.Under14Result.Location
             </div>*@
+    </div>
+    <div class="tab-pane fade" id="under15Result">
+        <div class="page-header text-capitalize">
+            <b>Under 15 Under Construction</b>
         </div>
-        <div class="tab-pane fade" id="under15Result">
-            <div class="page-header text-capitalize">
-                <b>Under 15 Under Construction</b>
-            </div>
-            @*<div class="panel-body">
+        @*<div class="panel-body">
                 <b>Final Score:</b>&nbsp;@ViewBag.Under15Result.ResultString<br />
                 <b>Tip Off:</b>&nbsp;@ViewBag.Under15Result.TipOff<br />
                 <b>Location:</b>&nbsp;@ViewBag.Under15Result.Location
             </div>*@
+    </div>
+    <div class="tab-pane fade" id="under16Result">
+        <div class="page-header text-capitalize">
+            <b>Under 16 Under Construction</b>
         </div>
-        <div class="tab-pane fade" id="under16Result">
-            <div class="page-header text-capitalize">
-                <b>Under 16 Under Construction</b>
-            </div>
-            @*<div class="panel-body">
+        @*<div class="panel-body">
                 <b>Final Score:</b>&nbsp;@ViewBag.Under16Result.ResultString<br />
                 <b>Tip Off:</b>&nbsp;@ViewBag.Under16Result.TipOff<br />
                 <b>Location:</b>&nbsp;@ViewBag.Under16Result.Location
             </div>*@
+    </div>
+    <div class="tab-pane fade" id="under18Result">
+        <div class="page-header text-capitalize">
+            <b>Under 18 Under Construction</b>
         </div>
-        <div class="tab-pane fade" id="under18Result">
-            <div class="page-header text-capitalize">
-                <b>Under 18 Under Construction</b>
-            </div>
-            @*<div class="panel-body">
+        @*<div class="panel-body">
                 <b>Final Score:</b>&nbsp;@ViewBag.Under18Result.ResultString<br />
                 <b>Tip Off:</b>&nbsp;@ViewBag.Under18Result.TipOff<br />
                 <b>Location:</b>&nbsp;@ViewBag.Under18Result.Location
             </div>*@
-        </div>
     </div>
+</div>

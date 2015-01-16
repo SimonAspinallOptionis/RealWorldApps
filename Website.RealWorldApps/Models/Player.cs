@@ -4,9 +4,12 @@
     {
         private string _imgName;
 
+        public int Id { get; set; }
         public string Name { get; set; }
-        public int JerseyNumber { get; set; }
+        public int Number { get; set; }
         public string Position { get; set; }
+        public string TeamName { get; set; }
+        public string LeagueName { get; set; }
         public string ImgName
         {
             get

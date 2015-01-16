@@ -1,6 +1,4 @@
-﻿@model List<Website.RealWorldApps.Models.Fixture>
-
-@{
+﻿@{
     ViewBag.Title = "Upcoming Fixtures";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -46,19 +44,19 @@
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active in" id="white">
         <ul class="list-unstyled">
-            @foreach (var fixture in Model)
+            @foreach (var fixture in ViewBag.Under13WhiteSchedule)
             {
                 <li>
                     <div class="page-header text-center">
                         <div class="panel-body text-center">
                             <div class="row">
-                                <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.OpponentName" class="img-rounded" style="height:200px; width:200px;" />
+                                <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.Organisation" class="img-rounded" style="height:200px; width:200px;" />
                             </div>
                             <div class="row">
-                                @fixture.OpponentName
+                                @fixture.Organisation&nbsp;@fixture.OpponentName
                             </div>
                             <div class="row">
-                                @fixture.Location
+                                @fixture.AddressLine1,&nbsp;@fixture.TownCity
                             </div>
                             <div class="row">
                                 @fixture.TipOff
@@ -70,38 +68,178 @@
         </ul>
     </div>
     <div class="tab-pane fade in" id="green">
-        <div class="page-header text-center">
-            Under 13 Green Under Construction
-        </div>
+        <ul class="list-unstyled">
+            @foreach (var fixture in ViewBag.Under13GreenSchedule)
+            {
+                <li>
+                    <div class="page-header text-center">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.Organisation" class="img-rounded" style="height:200px; width:200px;" />
+                            </div>
+                            <div class="row">
+                                @fixture.Organisation&nbsp;@fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                @fixture.AddressLine1,&nbsp;@fixture.TownCity
+                            </div>
+                            <div class="row">
+                                @fixture.TipOff
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="under14">
-        <div class="page-header text-center">
-            Under 14 Under Construction
-        </div>
+        <ul class="list-unstyled">
+            @foreach (var fixture in ViewBag.Under14Schedule)
+            {
+                <li>
+                    <div class="page-header text-center">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.Organisation" class="img-rounded" style="height:200px; width:200px;" />
+                            </div>
+                            <div class="row">
+                                @fixture.Organisation&nbsp;@fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                @fixture.AddressLine1,&nbsp;@fixture.TownCity
+                            </div>
+                            <div class="row">
+                                @fixture.TipOff
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="under15">
-        <div class="page-header text-center">
-            Under 15 Under Construction
-        </div>
+        <ul class="list-unstyled">
+            @foreach (var fixture in ViewBag.Under15Schedule)
+            {
+                <li>
+                    <div class="page-header text-center">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.Organisation" class="img-rounded" style="height:200px; width:200px;" />
+                            </div>
+                            <div class="row">
+                                @fixture.Organisation&nbsp;@fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                @fixture.AddressLine1,&nbsp;@fixture.TownCity
+                            </div>
+                            <div class="row">
+                                @fixture.TipOff
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="conference16">
-        <div class="page-header text-center">
-            Under 16 Conference Under Construction
-        </div>
+        <ul class="list-unstyled">
+            @foreach (var fixture in ViewBag.Under16CSchedule)
+            {
+                <li>
+                    <div class="page-header text-center">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.Organisation" class="img-rounded" style="height:200px; width:200px;" />
+                            </div>
+                            <div class="row">
+                                @fixture.Organisation&nbsp;@fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                @fixture.AddressLine1,&nbsp;@fixture.TownCity
+                            </div>
+                            <div class="row">
+                                @fixture.TipOff
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="premier16">
-        <div class="page-header text-center">
-            Under 16 Premier Under Construction
-        </div>
+        <ul class="list-unstyled">
+            @foreach (var fixture in ViewBag.Under16PSchedule)
+            {
+                <li>
+                    <div class="page-header text-center">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.Organisation" class="img-rounded" style="height:200px; width:200px;" />
+                            </div>
+                            <div class="row">
+                                @fixture.Organisation&nbsp;@fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                @fixture.AddressLine1,&nbsp;@fixture.TownCity
+                            </div>
+                            <div class="row">
+                                @fixture.TipOff
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="conference18">
-        <div class="page-header text-center">
-            Under 18 Conference Under Construction
-        </div>
+        <ul class="list-unstyled">
+            @foreach (var fixture in ViewBag.Under18CSchedule)
+            {
+                <li>
+                    <div class="page-header text-center">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.Organisation" class="img-rounded" style="height:200px; width:200px;" />
+                            </div>
+                            <div class="row">
+                                @fixture.Organisation&nbsp;@fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                @fixture.AddressLine1,&nbsp;@fixture.TownCity
+                            </div>
+                            <div class="row">
+                                @fixture.TipOff
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="premier18">
-        <div class="page-header text-center">
-            Under 18 Premier Under Construction
-        </div>
+        <ul class="list-unstyled">
+            @foreach (var fixture in ViewBag.Under18PSchedule)
+            {
+                <li>
+                    <div class="page-header text-center">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <img src="~/Content/Images/@fixture.TeamLogoUrl" alt="@fixture.Organisation" class="img-rounded" style="height:200px; width:200px;" />
+                            </div>
+                            <div class="row">
+                                @fixture.Organisation&nbsp;@fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                @fixture.AddressLine1,&nbsp;@fixture.TownCity
+                            </div>
+                            <div class="row">
+                                @fixture.TipOff
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
 </div>

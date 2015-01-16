@@ -1,14 +1,15 @@
-﻿namespace Website.RealWorldApps.Models
+﻿using System;
+namespace Website.RealWorldApps.Models
 {
-    public class Coach
+    public class Result
     {
         private string _imgName;
 
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Position { get; set; }
-        public string TeamName { get; set; }
-        public string LeagueName { get; set; }
+        public int CheshireScore { get; set; }
+        public int OpponentScore { get; set; }
+        public int FixtureId { get; set; }
+        public Fixture Fixture { get; set; }
         public string ImgName
         {
             get
@@ -17,7 +18,7 @@
                 {
                     return "England_Basketball.jpg";
                 }
-                return "/Coaches/" + _imgName;
+                return "TeamLogos/" + _imgName;
             }
             set
             {
