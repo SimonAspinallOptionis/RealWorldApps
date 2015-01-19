@@ -1,4 +1,4 @@
-﻿@model Website.RealWorldApps.Models.Game
+﻿@model Website.RealWorldApps.Models.Result
 
 @{
     ViewBag.Title = "Game Details";
@@ -13,7 +13,7 @@
         <ul class="list-unstyled">
             <li><a href="/Game/Results">Back To Results</a></li>
         </ul>
-        <b>Cheshire Wire White vs @Model.OpponentName</b>
+        <b>@Model.Fixture.LeagueName&nbsp;@Model.Fixture.TeamName vs @Model.Fixture.Organisation&nbsp;@Model.Fixture.OpponentName</b>
     </div>
     <div class="panel-body">
         <ul class="nav nav-tabs">
@@ -48,13 +48,13 @@
                             <th>Effieciency</th>
                             <th>Points</th>
                         </tr>
-                        @Html.Raw(Model.BoxScoreHtml)
+                        @Html.Raw(Model.BoxScore)
                     </table>
                 </div>
             </div>
             <div class="tab-pane fade" id="ShotChart">
                 <div class="panel-body">
-                    <img src="~/Content/Images/@Model.ShotChartUrl" alt="@Model.OpponentName" class="img-rounded" style="height: 400px; width: 400px;" />
+                    <img src="~/Content/Images/ShotCharts/@Model.ShotChartUrl" alt="@Model.Fixture.Organisation" class="img-rounded" style="height: 400px; width: 400px;" />
                 </div>
             </div>
         </div>

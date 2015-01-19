@@ -11,7 +11,6 @@ namespace Website.RealWorldApps.Controllers
 {
     public class HomeController : Controller
     {
-        public static Data Data { get; set; }
         private List<Fixture> NextFixtures { get; set; }
         private List<Result> PreviousResults { get; set; }
         private List<Story> News { get; set; }

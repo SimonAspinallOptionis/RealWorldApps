@@ -45,17 +45,14 @@
 </ul>
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active in" id="white">
-        <ul class="list-inline">
-            @{
-                var something = (List<Result>)ViewBag.Under13WhiteResults;
-            }
+        <ul class="list-unstyled">
             @foreach (var result in (List<Result>)ViewBag.Under13WhiteResults)
             {
                 <li>
-                    <div class="panel-body">
-                        <div class="panel-body">
-                            <div class="row text-center">
-                                <a href="~/Game/GameDetails?id=@ViewBag.Under13WhiteResults.IndexOf(result)">
+                    <div class="page-header text-center">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <a href="~/Game/GameDetails?id=@result.Id">
                                     <img src="~/Content/Images/@result.ImgName" alt="@result.Fixture.Organisation" class="img-rounded" style="height: 120px; width:120px;" />
                                 </a>
                             </div>
@@ -82,26 +79,28 @@
                     </div>
                 </li>
             }
-
-
-            @*@for (int i = 0; i < ViewBag.Under13WhiteResults; i++)
+        </ul>
+    </div>
+    <div class="tab-pane fade in" id="green">
+        <ul class="list-inline">
+            @foreach (var result in (List<Result>)ViewBag.Under13GreenResults)
             {
                 <li>
                     <div class="panel-body">
                         <div class="panel-body">
                             <div class="row text-center">
-                                <a href="~/Game/GameDetails?id=@i">
-                                    <img src="~/Content/Images/@ViewBag.Under13WhiteResults[i].ImgName" alt="@ViewBag.Under13WhiteResults[i].Organisation" class="img-rounded" style="height: 120px; width:120px;" />
+                                <a href="~/Game/GameDetails?id=@result.Id">
+                                    <img src="~/Content/Images/@result.ImgName" alt="@result.Fixture.Organisation" class="img-rounded" style="height: 120px; width:120px;" />
                                 </a>
                             </div>
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                Opponent: @ViewBag.Under13WhiteResults[i].Organisation&nbsp;@ViewBag.Under13WhiteResults.OpponentName
+                                Opponent: @result.Fixture.Organisation&nbsp;@result.Fixture.OpponentName
                             </div>
                             <div class="row">
-                                Final Score: @ViewBag.Under13WhiteResults[i].CheshireScore : @ViewBag.Under13WhiteResults[i].OpponentScore
-                                @if (ViewBag.Under13WhiteResults[i].CheshireScore > ViewBag.Under13WhiteResults[i].OpponentScore)
+                                Final Score: @result.CheshireScore : @result.OpponentScore
+                                @if (result.CheshireScore > result.OpponentScore)
                                 {
                                     <span>W</span>
                                 }
@@ -111,47 +110,234 @@
                                 }
                             </div>
                             <div class="row">
-                                Location: @ViewBag.Under13WhiteResults[i].AddressLine1,&nbsp;@ViewBag.Under13WhiteResults[i].TownCity
+                                Location: @result.Fixture.AddressLine1,&nbsp;@result.Fixture.TownCity
                             </div>
                         </div>
                     </div>
                 </li>
-            }*@
+            }
         </ul>
     </div>
-    <div class="tab-pane fade in" id="green">
-        <div class="page-header text-center">
-            Under 13 Green Under Construction
-        </div>
-    </div>
     <div class="tab-pane fade in" id="under14">
-        <div class="page-header text-center">
-            Under 14 Under Construction
-        </div>
+        <ul class="list-inline">
+            @foreach (var result in (List<Result>)ViewBag.Under14Results)
+            {
+                <li>
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="row text-center">
+                                <a href="~/Game/GameDetails?id=@result.Id">
+                                    <img src="~/Content/Images/@result.ImgName" alt="@result.Fixture.Organisation" class="img-rounded" style="height: 120px; width:120px;" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                Opponent: @result.Fixture.Organisation&nbsp;@result.Fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                Final Score: @result.CheshireScore : @result.OpponentScore
+                                @if (result.CheshireScore > result.OpponentScore)
+                                {
+                                    <span>W</span>
+                                }
+                                else
+                                {
+                                    <span>L</span>
+                                }
+                            </div>
+                            <div class="row">
+                                Location: @result.Fixture.AddressLine1,&nbsp;@result.Fixture.TownCity
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="under15">
-        <div class="page-header text-center">
-            Under 15 Under Construction
-        </div>
+        <ul class="list-inline">
+            @foreach (var result in (List<Result>)ViewBag.Under15Results)
+            {
+                <li>
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="row text-center">
+                                <a href="~/Game/GameDetails?id=@result.Id">
+                                    <img src="~/Content/Images/@result.ImgName" alt="@result.Fixture.Organisation" class="img-rounded" style="height: 120px; width:120px;" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                Opponent: @result.Fixture.Organisation&nbsp;@result.Fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                Final Score: @result.CheshireScore : @result.OpponentScore
+                                @if (result.CheshireScore > result.OpponentScore)
+                                {
+                                    <span>W</span>
+                                }
+                                else
+                                {
+                                    <span>L</span>
+                                }
+                            </div>
+                            <div class="row">
+                                Location: @result.Fixture.AddressLine1,&nbsp;@result.Fixture.TownCity
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="conference16">
-        <div class="page-header text-center">
-            Under 16 Conference Under Construction
-        </div>
+        <ul class="list-inline">
+            @foreach (var result in (List<Result>)ViewBag.Under16CResults)
+            {
+                <li>
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="row text-center">
+                                <a href="~/Game/GameDetails?id=@result.Id">
+                                    <img src="~/Content/Images/@result.ImgName" alt="@result.Fixture.Organisation" class="img-rounded" style="height: 120px; width:120px;" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                Opponent: @result.Fixture.Organisation&nbsp;@result.Fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                Final Score: @result.CheshireScore : @result.OpponentScore
+                                @if (result.CheshireScore > result.OpponentScore)
+                                {
+                                    <span>W</span>
+                                }
+                                else
+                                {
+                                    <span>L</span>
+                                }
+                            </div>
+                            <div class="row">
+                                Location: @result.Fixture.AddressLine1,&nbsp;@result.Fixture.TownCity
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="premier16">
-        <div class="page-header text-center">
-            Under 16 Premier Under Construction
-        </div>
+        <ul class="list-inline">
+            @foreach (var result in (List<Result>)ViewBag.Under16PResults)
+            {
+                <li>
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="row text-center">
+                                <a href="~/Game/GameDetails?id=@result.Id">
+                                    <img src="~/Content/Images/@result.ImgName" alt="@result.Fixture.Organisation" class="img-rounded" style="height: 120px; width:120px;" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                Opponent: @result.Fixture.Organisation&nbsp;@result.Fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                Final Score: @result.CheshireScore : @result.OpponentScore
+                                @if (result.CheshireScore > result.OpponentScore)
+                                {
+                                    <span>W</span>
+                                }
+                                else
+                                {
+                                    <span>L</span>
+                                }
+                            </div>
+                            <div class="row">
+                                Location: @result.Fixture.AddressLine1,&nbsp;@result.Fixture.TownCity
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="conference18">
-        <div class="page-header text-center">
-            Under 18 Conference Under Construction
-        </div>
+        <ul class="list-inline">
+            @foreach (var result in (List<Result>)ViewBag.Under18CResults)
+            {
+                <li>
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="row text-center">
+                                <a href="~/Game/GameDetails?id=@result.Id">
+                                    <img src="~/Content/Images/@result.ImgName" alt="@result.Fixture.Organisation" class="img-rounded" style="height: 120px; width:120px;" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                Opponent: @result.Fixture.Organisation&nbsp;@result.Fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                Final Score: @result.CheshireScore : @result.OpponentScore
+                                @if (result.CheshireScore > result.OpponentScore)
+                                {
+                                    <span>W</span>
+                                }
+                                else
+                                {
+                                    <span>L</span>
+                                }
+                            </div>
+                            <div class="row">
+                                Location: @result.Fixture.AddressLine1,&nbsp;@result.Fixture.TownCity
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
     <div class="tab-pane fade in" id="premier18">
-        <div class="page-header text-center">
-            Under 18 Premier Under Construction
-        </div>
+        <ul class="list-inline">
+            @foreach (var result in (List<Result>)ViewBag.Under18PResults)
+            {
+                <li>
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="row text-center">
+                                <a href="~/Game/GameDetails?id=@result.Id">
+                                    <img src="~/Content/Images/@result.ImgName" alt="@result.Fixture.Organisation" class="img-rounded" style="height: 120px; width:120px;" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                Opponent: @result.Fixture.Organisation&nbsp;@result.Fixture.OpponentName
+                            </div>
+                            <div class="row">
+                                Final Score: @result.CheshireScore : @result.OpponentScore
+                                @if (result.CheshireScore > result.OpponentScore)
+                                {
+                                    <span>W</span>
+                                }
+                                else
+                                {
+                                    <span>L</span>
+                                }
+                            </div>
+                            <div class="row">
+                                Location: @result.Fixture.AddressLine1,&nbsp;@result.Fixture.TownCity
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
 </div>

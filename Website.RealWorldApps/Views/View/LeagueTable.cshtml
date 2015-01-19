@@ -1,7 +1,5 @@
-﻿@model List<Website.RealWorldApps.Models.TeamStats>
-
-@{
-    ViewBag.Title = "LeagueTable";
+﻿@{
+    ViewBag.Title = "League Table";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,26 +7,226 @@
     <h2>@ViewBag.Title</h2>
 </div>
 
-<table class="table table-striped">
-    <tr class="success">
-        <th>Team Name</th>
-        <th>Wins</th>
-        <th>Losses</th>
-        <th>Points For</th>
-        <th>Points Against</th>
-        <th>Points Difference</th>
-        <th>Team Points</th>
-    </tr>
-    @foreach (var team in Model)
-    {
-        <tr>
-            <td>@team.TeamName</td>
-            <td>@team.Wins</td>
-            <td>@team.Losses</td>
-            <td>@team.PointsFor</td>
-            <td>@team.PointsAgainst</td>
-            <td>@team.PointsDifference</td>
-            <td>@team.Points</td>
-        </tr>
-    }
-</table>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#under13" data-toggle="tab">Under 13</a></li>
+    <li><a href="#under14" data-toggle="tab">Under 14</a></li>
+    <li><a href="#under15" data-toggle="tab">Under 15</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 16&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference16" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier16" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 18&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference18" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier18" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="under13">
+        <div class="panel-body">
+            <h4><b>Under 13</b></h4>
+            <table class="table table-striped">
+                <tr class="success">
+                    <th>Team Name</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points For</th>
+                    <th>Points Against</th>
+                    <th>Points Difference</th>
+                    <th>Team Points</th>
+                </tr>
+                @foreach (var row in (List<Website.RealWorldApps.Models.LeagueTableRow>)ViewBag.Under13LeagueTable)
+                {
+                    <tr>
+                        <td>@row.TeamName</td>
+                        <td>@row.Wins</td>
+                        <td>@row.Losses</td>
+                        <td>@row.PointsFor</td>
+                        <td>@row.PointsAgainst</td>
+                        <td>@row.PointsDifference</td>
+                        <td>@row.TeamPoints</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="under14">
+        <div class="panel-body">
+            <h4><b>Under 14</b></h4>
+            <table class="table table-striped">
+                <tr class="success">
+                    <th>Team Name</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points For</th>
+                    <th>Points Against</th>
+                    <th>Points Difference</th>
+                    <th>Team Points</th>
+                </tr>
+                @foreach (var row in (List<Website.RealWorldApps.Models.LeagueTableRow>)ViewBag.Under14LeagueTable)
+                {
+                    <tr>
+                        <td>@row.TeamName</td>
+                        <td>@row.Wins</td>
+                        <td>@row.Losses</td>
+                        <td>@row.PointsFor</td>
+                        <td>@row.PointsAgainst</td>
+                        <td>@row.PointsDifference</td>
+                        <td>@row.TeamPoints</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="under15">
+        <div class="panel-body">
+            <h4><b>Under 15</b></h4>
+            <table class="table table-striped">
+                <tr class="success">
+                    <th>Team Name</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points For</th>
+                    <th>Points Against</th>
+                    <th>Points Difference</th>
+                    <th>Team Points</th>
+                </tr>
+                @foreach (var row in (List<Website.RealWorldApps.Models.LeagueTableRow>)ViewBag.Under15LeagueTable)
+                {
+                    <tr>
+                        <td>@row.TeamName</td>
+                        <td>@row.Wins</td>
+                        <td>@row.Losses</td>
+                        <td>@row.PointsFor</td>
+                        <td>@row.PointsAgainst</td>
+                        <td>@row.PointsDifference</td>
+                        <td>@row.TeamPoints</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="conference16">
+        <div class="panel-body">
+            <h4><b>Under 16 Conference</b></h4>
+            <table class="table table-striped">
+                <tr class="success">
+                    <th>Team Name</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points For</th>
+                    <th>Points Against</th>
+                    <th>Points Difference</th>
+                    <th>Team Points</th>
+                </tr>
+                @foreach (var row in (List<Website.RealWorldApps.Models.LeagueTableRow>)ViewBag.Under16CLeagueTable)
+                {
+                    <tr>
+                        <td>@row.TeamName</td>
+                        <td>@row.Wins</td>
+                        <td>@row.Losses</td>
+                        <td>@row.PointsFor</td>
+                        <td>@row.PointsAgainst</td>
+                        <td>@row.PointsDifference</td>
+                        <td>@row.TeamPoints</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="premier16">
+        <div class="panel-body">
+            <h4><b>Under 16 Premier</b></h4>
+            <table class="table table-striped">
+                <tr class="success">
+                    <th>Team Name</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points For</th>
+                    <th>Points Against</th>
+                    <th>Points Difference</th>
+                    <th>Team Points</th>
+                </tr>
+                @foreach (var row in (List<Website.RealWorldApps.Models.LeagueTableRow>)ViewBag.Under16PLeagueTable)
+                {
+                    <tr>
+                        <td>@row.TeamName</td>
+                        <td>@row.Wins</td>
+                        <td>@row.Losses</td>
+                        <td>@row.PointsFor</td>
+                        <td>@row.PointsAgainst</td>
+                        <td>@row.PointsDifference</td>
+                        <td>@row.TeamPoints</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="conference18">
+        <div class="panel-body">
+            <h4><b>Under 18 Conference</b></h4>
+            <table class="table table-striped">
+                <tr class="success">
+                    <th>Team Name</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points For</th>
+                    <th>Points Against</th>
+                    <th>Points Difference</th>
+                    <th>Team Points</th>
+                </tr>
+                @foreach (var row in (List<Website.RealWorldApps.Models.LeagueTableRow>)ViewBag.Under18CLeagueTable)
+                {
+                    <tr>
+                        <td>@row.TeamName</td>
+                        <td>@row.Wins</td>
+                        <td>@row.Losses</td>
+                        <td>@row.PointsFor</td>
+                        <td>@row.PointsAgainst</td>
+                        <td>@row.PointsDifference</td>
+                        <td>@row.TeamPoints</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="premier18">
+        <div class="panel-body">
+            <h4><b>Under 18 Premier</b></h4>
+            <table class="table table-striped">
+                <tr class="success">
+                    <th>Team Name</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points For</th>
+                    <th>Points Against</th>
+                    <th>Points Difference</th>
+                    <th>Team Points</th>
+                </tr>
+                @foreach (var row in (List<Website.RealWorldApps.Models.LeagueTableRow>)ViewBag.Under18PLeagueTable)
+                {
+                    <tr>
+                        <td>@row.TeamName</td>
+                        <td>@row.Wins</td>
+                        <td>@row.Losses</td>
+                        <td>@row.PointsFor</td>
+                        <td>@row.PointsAgainst</td>
+                        <td>@row.PointsDifference</td>
+                        <td>@row.TeamPoints</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

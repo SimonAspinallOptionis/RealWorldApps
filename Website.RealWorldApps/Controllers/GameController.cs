@@ -11,8 +11,6 @@ namespace Website.RealWorldApps.Controllers
 {
     public class GameController : Controller
     {
-        private Data Data { get; set; }
-
         private List<Fixture> Fixtures { get; set; }
         private List<Result> ResultCollection { get; set; }
 
@@ -32,57 +30,6 @@ namespace Website.RealWorldApps.Controllers
             FillResults();
 
             return View();
-        }
-
-        private DataSet GetResultsDataSet(SqlCommand cmd)
-        {
-            var ds = new DataSet();
-
-            try
-            {
-                cmd.CommandText = "usp_GetResults";
-                cmd.Connection.Open();
-                var da = new SqlDataAdapter(cmd);
-
-                da.Fill(ds);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                if (cmd.Connection.State == ConnectionState.Open)
-                {
-                    cmd.Connection.Close();
-                }
-            }
-
-            return ds;
-        }
-
-        private void MapOutResults(DataSet ds)
-        {
-            ResultCollection.AddRange(ds.Tables[0].AsEnumerable()
-                .Select(r => new Result
-                {
-                    Id = r.Field<int>("Id"),
-                    CheshireScore = r.Field<int>("CheshireScore"),
-                    OpponentScore = r.Field<int>("OpponentScore"),
-                    Fixture = GetFixtureById(r.Field<int>("FixtureId"))
-                }).ToList());
-        }
-
-        private void FillResults()
-        {
-            ViewBag.Under13WhiteResults = ResultCollection.Where(r => r.Fixture.TeamName == "White" && r.Fixture.LeagueName == "Under 13").ToList();
-            ViewBag.Under13GreenResults = ResultCollection.Where(r => r.Fixture.TeamName == "Green" && r.Fixture.LeagueName == "Under 13");
-            ViewBag.Under14Results = ResultCollection.Where(r => r.Fixture.LeagueName == "Under 14");
-            ViewBag.Under15Results = ResultCollection.Where(r => r.Fixture.LeagueName == "Under 15");
-            ViewBag.Under16CResults = ResultCollection.Where(r => r.Fixture.TeamName == "Conference" && r.Fixture.LeagueName == "Under 16");
-            ViewBag.Under16PResults = ResultCollection.Where(r => r.Fixture.TeamName == "Premier" && r.Fixture.LeagueName == "Under 16");
-            ViewBag.Under18CResults = ResultCollection.Where(r => r.Fixture.TeamName == "Conference" && r.Fixture.LeagueName == "Under 18");
-            ViewBag.Under18PResults = ResultCollection.Where(r => r.Fixture.TeamName == "Premier" && r.Fixture.LeagueName == "Under 18");
         }
 
         private Fixture GetFixtureById(int fixtureId)
@@ -136,8 +83,20 @@ namespace Website.RealWorldApps.Controllers
 
         public ActionResult GameDetails(int id)
         {
-            Data = HomeController.Data;
-            return View(Data.League.Teams[0].Results[id]);
+            ResultCollection = new List<Result>();
+
+            var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CheshireWireConnection"].ConnectionString);
+            var cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = conn;
+
+            var ds = GetResultsDataSet(cmd);
+
+            MapOutResults(ds);
+
+            var result = ResultCollection.First(r => r.Id == id);
+
+            return View(result);
         }
 
         public ActionResult Schedule()
@@ -176,8 +135,8 @@ namespace Website.RealWorldApps.Controllers
         [HttpPost]
         public ActionResult AddResult(string league, string opponentName, string organisation, DateTime tipOff, string location, int cheshireScore, int opponentScore, bool wonGame, string boxScore, string gameStory, string shotChartUrl, string imgName)
         {
-            Data = HomeController.Data;
-            Data.Leagues.Where(r => r.Name == league).ToList()[0].Teams[0].Results.Add(new Models.Result { CheshireScore = cheshireScore, OpponentScore = opponentScore });
+            //Data = HomeController.Data;
+            //Data.Leagues.Where(r => r.Name == league).ToList()[0].Teams[0].Results.Add(new Models.Result { CheshireScore = cheshireScore, OpponentScore = opponentScore });
             return RedirectToAction("Results");
         }
 
@@ -185,14 +144,42 @@ namespace Website.RealWorldApps.Controllers
         [HttpPost]
         public ActionResult AddFixture(string league, string opponentName, DateTime tipOff, string location, string teamLogoUrl)
         {
-            Data = HomeController.Data;
-            Data.Leagues.Where(f => f.Name == league).ToList()[0].Teams[0].Schedule.Add(new Models.Fixture { OpponentName = opponentName, TipOff = tipOff, AddressLine1 = location, TeamLogoUrl = teamLogoUrl });
+            //Data = HomeController.Data;
+            //Data.Leagues.Where(f => f.Name == league).ToList()[0].Teams[0].Schedule.Add(new Models.Fixture { OpponentName = opponentName, TipOff = tipOff, AddressLine1 = location, TeamLogoUrl = teamLogoUrl });
             return RedirectToAction("Schedule");
         }
 
         #endregion
 
         #region Get Data Sets
+
+        private DataSet GetResultsDataSet(SqlCommand cmd)
+        {
+            var ds = new DataSet();
+
+            try
+            {
+                cmd.CommandText = "usp_GetResults";
+                cmd.Connection.Open();
+                var da = new SqlDataAdapter(cmd);
+
+                da.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+
+            return ds;
+        }
+
 
         private DataSet GetFixturesDataSet(SqlCommand cmd)
         {
@@ -223,6 +210,22 @@ namespace Website.RealWorldApps.Controllers
 
         #region Mapping
 
+        private void MapOutResults(DataSet ds)
+        {
+            ResultCollection.AddRange(ds.Tables[0].AsEnumerable()
+                .Select(r => new Result
+                {
+                    Id = r.Field<int>("Id"),
+                    CheshireScore = r.Field<int>("CheshireScore"),
+                    OpponentScore = r.Field<int>("OpponentScore"),
+                    Fixture = GetFixtureById(r.Field<int>("FixtureId")),
+                    GameStory = r.Field<string>("GameStory"),
+                    BoxScore = r.Field<string>("BoxScore"),
+                    ShotChartUrl = r.Field<string>("ShotChartUrl")
+                }).ToList());
+        }
+
+
         private void MapOutFixtures(DataSet ds)
         {
             Fixtures.AddRange(ds.Tables[0].AsEnumerable()
@@ -245,6 +248,19 @@ namespace Website.RealWorldApps.Controllers
         #endregion
 
         #region Fill
+
+        private void FillResults()
+        {
+            ViewBag.Under13WhiteResults = ResultCollection.Where(r => r.Fixture.TeamName == "White" && r.Fixture.LeagueName == "Under 13").OrderByDescending(r=>r.Fixture.TipOff).ToList();
+            ViewBag.Under13GreenResults = ResultCollection.Where(r => r.Fixture.TeamName == "Green" && r.Fixture.LeagueName == "Under 13").OrderByDescending(r => r.Fixture.TipOff).ToList();
+            ViewBag.Under14Results = ResultCollection.Where(r => r.Fixture.LeagueName == "Under 14").OrderByDescending(r => r.Fixture.TipOff).ToList();
+            ViewBag.Under15Results = ResultCollection.Where(r => r.Fixture.LeagueName == "Under 15").OrderByDescending(r => r.Fixture.TipOff).ToList();
+            ViewBag.Under16CResults = ResultCollection.Where(r => r.Fixture.TeamName == "Conference" && r.Fixture.LeagueName == "Under 16").OrderByDescending(r => r.Fixture.TipOff).ToList();
+            ViewBag.Under16PResults = ResultCollection.Where(r => r.Fixture.TeamName == "Premier" && r.Fixture.LeagueName == "Under 16").OrderByDescending(r => r.Fixture.TipOff).ToList();
+            ViewBag.Under18CResults = ResultCollection.Where(r => r.Fixture.TeamName == "Conference" && r.Fixture.LeagueName == "Under 18").OrderByDescending(r => r.Fixture.TipOff).ToList();
+            ViewBag.Under18PResults = ResultCollection.Where(r => r.Fixture.TeamName == "Premier" && r.Fixture.LeagueName == "Under 18").OrderByDescending(r => r.Fixture.TipOff).ToList();
+        }
+
 
         private void FillFixtures()
         {
