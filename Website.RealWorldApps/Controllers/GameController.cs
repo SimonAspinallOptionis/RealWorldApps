@@ -6,6 +6,7 @@ using Website.RealWorldApps.Models;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.IO;
 
 namespace Website.RealWorldApps.Controllers
 {
@@ -13,6 +14,8 @@ namespace Website.RealWorldApps.Controllers
     {
         private List<Fixture> Fixtures { get; set; }
         private List<Result> ResultCollection { get; set; }
+
+        #region Page Navigation
 
         public ActionResult Results()
         {
@@ -56,7 +59,7 @@ namespace Website.RealWorldApps.Controllers
             }
             finally
             {
-                if(cmd.Connection.State == ConnectionState.Open)
+                if (cmd.Connection.State == ConnectionState.Open)
                 {
                     cmd.Connection.Close();
                 }
@@ -116,6 +119,8 @@ namespace Website.RealWorldApps.Controllers
 
             return View();
         }
+
+        #endregion
 
         #region Admin Area
 
@@ -251,7 +256,7 @@ namespace Website.RealWorldApps.Controllers
 
         private void FillResults()
         {
-            ViewBag.Under13WhiteResults = ResultCollection.Where(r => r.Fixture.TeamName == "White" && r.Fixture.LeagueName == "Under 13").OrderByDescending(r=>r.Fixture.TipOff).ToList();
+            ViewBag.Under13WhiteResults = ResultCollection.Where(r => r.Fixture.TeamName == "White" && r.Fixture.LeagueName == "Under 13").OrderByDescending(r => r.Fixture.TipOff).ToList();
             ViewBag.Under13GreenResults = ResultCollection.Where(r => r.Fixture.TeamName == "Green" && r.Fixture.LeagueName == "Under 13").OrderByDescending(r => r.Fixture.TipOff).ToList();
             ViewBag.Under14Results = ResultCollection.Where(r => r.Fixture.LeagueName == "Under 14").OrderByDescending(r => r.Fixture.TipOff).ToList();
             ViewBag.Under15Results = ResultCollection.Where(r => r.Fixture.LeagueName == "Under 15").OrderByDescending(r => r.Fixture.TipOff).ToList();

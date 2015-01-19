@@ -269,6 +269,14 @@
     <Content Include="Content\LeagueTables\LeagueTable_Under 16P.csv" />
     <Content Include="Content\LeagueTables\LeagueTable_Under 18C.csv" />
     <Content Include="Content\LeagueTables\LeagueTable_Under 18P.csv" />
+    <Content Include="Content\Results\Results_Under13Green.csv" />
+    <Content Include="Content\Fixtures\Fixtures_Under13Green.csv" />
+    <Content Include="Content\Fixtures\Fixtures_Under14.csv" />
+    <Content Include="Content\Fixtures\Fixtures_Under15.csv" />
+    <Content Include="Content\Fixtures\Fixtures_Under16C.csv" />
+    <Content Include="Content\Fixtures\Fixtures_Under16P.csv" />
+    <Content Include="Content\Fixtures\Fixtures_Under18C.csv" />
+    <Content Include="Content\Fixtures\Fixtures_Under18P.csv" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\angular-min.js" />
     <Content Include="Scripts\angular-resource-min.js" />
