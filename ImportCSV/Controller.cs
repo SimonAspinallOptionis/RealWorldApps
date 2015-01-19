@@ -156,7 +156,13 @@ namespace ImportCSV
 
                 if (values[1].Contains("Cheshire Wire"))
                 {
-                    result.Fixture = GetFixtureByTipoffAndOpponent(DateTime.Parse(values[0]), values[4].Substring(values[4].IndexOf(' ')).Trim());
+                    var tipoff = DateTime.Parse(values[0]);
+                    var opponent = string.Empty;
+                    if(values[4].Split(' ').Length > 1)
+                    {
+                        opponent = values[4].Substring(values[4].IndexOf(' ')).Trim();
+                    }
+                    result.Fixture = GetFixtureByTipoffAndOpponent(tipoff, opponent);
                     result.CheshireScore = int.Parse(values[2]);
                     result.OpponentScore = int.Parse(values[3]);
                 }
